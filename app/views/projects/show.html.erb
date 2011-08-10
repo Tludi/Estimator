@@ -1,0 +1,36 @@
+<% title "Project" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @project.name %>
+</p>
+<p>
+  <strong>Address:</strong>
+  <%= @project.address %>
+</p>
+<p>
+  <strong>Owner:</strong>
+  <%= @project.owner %>
+</p>
+<p>
+  <strong>Contractor:</strong>
+  <%= @project.contractor %>
+</p>
+<p>
+  <strong>Bid Date:</strong>
+  <%= @project.bid_date %>
+</p>
+<p>
+  <strong>Start Date:</strong>
+  <%= @project.start_date %>
+</p>
+<p>
+  <strong>User:</strong>
+  <%= @project.user_id %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_project_path(@project) %> |
+  <%= link_to "Destroy", @project, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", projects_path %>
+</p>

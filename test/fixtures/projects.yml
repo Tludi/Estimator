@@ -1,0 +1,17 @@
+one:
+  name: MyString
+  address: MyString
+  owner: MyString
+  contractor: MyString
+  bid_date: 2011-08-10
+  start_date: 2011-08-10
+  user_id: 1
+
+two:
+  name: MyString
+  address: MyString
+  owner: MyString
+  contractor: MyString
+  bid_date: 2011-08-10
+  start_date: 2011-08-10
+  user_id: 1

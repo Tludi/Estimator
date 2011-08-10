@@ -1,0 +1,33 @@
+<%= form_for @project do |f| %>
+  <%= f.error_messages %>
+  <p><%= current_user.projects %> </p>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </p>
+  <p>
+    <%= f.label :owner %><br />
+    <%= f.text_field :owner %>
+  </p>
+  <p>
+    <%= f.label :contractor %><br />
+    <%= f.text_field :contractor %>
+  </p>
+  <p>
+    <%= f.label :bid_date %><br />
+    <%= f.date_select :bid_date %>
+  </p>
+  <p>
+    <%= f.label :start_date %><br />
+    <%= f.date_select :start_date %>
+  </p>
+  <p>
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id, :value => current_user.id %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

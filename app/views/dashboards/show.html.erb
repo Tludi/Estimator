@@ -1,0 +1,10 @@
+<% title "Dashboard" %>
+
+<div class="projects">
+  <h2>Projects:
+    <span class="small"><%= link_to "create project", new_project_path %></span>
+  </h2>
+  <% for project in @projects %>
+    <p><%= project.name %></p>
+  <% end -%>
+</div>

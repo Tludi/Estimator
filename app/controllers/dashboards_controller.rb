@@ -5,7 +5,7 @@ class DashboardsController < ApplicationController
 
   def show
     @dashboard = Dashboard.find(params[:id])
-    @projects = current_user.projects.all
+    @projects = current_user.projects
   end
 
   def new

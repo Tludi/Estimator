@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110810174413) do
+ActiveRecord::Schema.define(:version => 20110810205148) do
 
   create_table "dashboards", :force => true do |t|
     t.string   "name"
@@ -27,6 +27,14 @@ ActiveRecord::Schema.define(:version => 20110810174413) do
     t.date     "bid_date"
     t.date     "start_date"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "takeoffs", :force => true do |t|
+    t.string   "trade"
+    t.string   "division"
+    t.integer  "project_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,0 +1,17 @@
+<% title "Takeoff" %>
+
+<p>
+  <strong>Trade:</strong>
+  <%= @takeoff.trade %>
+</p>
+<p>
+  <strong>Division:</strong>
+  <%= @takeoff.division %>
+</p>
+
+
+<p>
+  <%= link_to "Edit", edit_takeoff_path(@takeoff) %> |
+  <%= link_to "Destroy", @takeoff, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", takeoffs_path %>
+</p>

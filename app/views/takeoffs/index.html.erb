@@ -1,0 +1,21 @@
+<% title "Takeoffs" %>
+
+<table>
+  <tr>
+    <th>Trade</th>
+    <th>Division</th>
+    <th>Project</th>
+  </tr>
+  <% for takeoff in @takeoffs %>
+    <tr>
+      <td><%= takeoff.trade %></td>
+      <td><%= takeoff.division %></td>
+      <td><%= takeoff.project_id %></td>
+      <td><%= link_to "Show", takeoff %></td>
+      <td><%= link_to "Edit", edit_takeoff_path(takeoff) %></td>
+      <td><%= link_to "Destroy", takeoff, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Takeoff", new_takeoff_path %></p>

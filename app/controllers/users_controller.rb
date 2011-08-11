@@ -10,12 +10,16 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       @user.create_dashboard(:name => @user.username)
-      redirect_to dashboard_path(@user), :notice => "Thank you for signing up! You are now logged in."
+      redirect_to dashboard_path(@user)
     else
       render :action => 'new'
     end
   end
 
+  def show
+    @user = current_user
+  end
+  
   def edit
     @user = current_user
   end

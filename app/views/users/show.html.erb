@@ -1,0 +1,14 @@
+<div class="sign_in_form">
+
+  <p>
+    <strong>Name: </strong>
+    <%= current_user.username %>
+  </p>
+  <p>
+    <strong>Current email: </strong>
+    <%= current_user.email %>
+  </p>
+  <p class="small">
+    <%= link_to "Update Information", edit_user_path(current_user) %>
+  </p>
+</div>

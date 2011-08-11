@@ -1,10 +1,13 @@
 <% title "Dashboard" %>
 
 <div class="projects">
-  <h2>Projects:
-    <span class="small"><%= link_to "create project", new_project_path %></span>
-  </h2>
-  <% for project in @projects %>
-    <p><%= project.name %></p>
+  <h2>My projects: </h2>
+    <%= link_to "new project", new_project_path, :class=>"small" %>
+ 
+  <% @projects.each do |project|%>
+    <p class="list"><strong>
+      <%= link_to project.name, project_path(project)  %></strong> |
+      <span class="small"><%= project.address %></span>
+    </p>
   <% end -%>
 </div>

@@ -8,12 +8,11 @@ class ProjectsController < ApplicationController
   end
 
   def new
-    @user = current_user
-    @project =  Project.new
+    @project = Project.new
   end
 
   def create
-    @project = Project.new(params[:project])
+    @project = current_user.projects.build(params[:project])
     if @project.save
       redirect_to @project, :notice => "Successfully created project."
     else
@@ -37,6 +36,6 @@ class ProjectsController < ApplicationController
   def destroy
     @project = Project.find(params[:id])
     @project.destroy
-    redirect_to projects_url, :notice => "Successfully destroyed project."
+    redirect_to dashboard_path(current_user), :notice => "Successfully deleted project."
   end
 end

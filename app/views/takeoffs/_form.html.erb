@@ -1,0 +1,16 @@
+<%= form_for @takeoff do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :trade %><br />
+    <%= f.text_field :trade %>
+  </p>
+  <p>
+    <%= f.label :division %><br />
+    <%= f.text_field :division %>
+  </p>
+  <p>
+    <%= f.label :project_id %><br />
+    <%= f.text_field :project_id %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

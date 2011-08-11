@@ -21,10 +21,11 @@ hr {
 
 a { color: #000; 
   text-decoration:none;
-  
 }
 
-a:hover { color: #333; background-color:#fff; }
+a:hover { color: blue; }
+
+a:focus {outline:none;}
 
 div.field, div.actions {
   margin-bottom: 10px;
@@ -32,7 +33,7 @@ div.field, div.actions {
 
 
 #header, #footer {
-  height:80px;
+  height:105px;
   background-color:#f3f3f3;
   border-bottom:solid 1px  #d2d2d2;
 }
@@ -59,7 +60,7 @@ div.field, div.actions {
   height:700px;
   margin-top:20px;
   padding:5px 20px;
-  background-color:#d2d2d2;
+  background-color:#e3e3e3;
   float:left;
   display:inline;
   border:1px solid #999;
@@ -70,11 +71,6 @@ div.field, div.actions {
   box-shadow: 10px 10px 5px #888;
 }
 
-#footer {
-  border-top:solid 1px  #d2d2d2;
-  border-bottom:none;
-  text-align:center;
-}
 
 .content {
   overflow:hidden;
@@ -84,11 +80,11 @@ div.field, div.actions {
 
 .content h2.logo_text {
   width:200px;
-  color:#aaa;
+  color:#999;
   text-shadow: #cdcdce 5px 5px 1px;
   float:left;
   margin-top:25px;
-  font-size:2.5em;
+  font-size:2em;
 }
 
 .content .primary{
@@ -98,19 +94,6 @@ div.field, div.actions {
   display:inline;
   border-right:solid #e3e3e3 1px;
   font-size:1.2em;
-}
-
-.content .primary .post {
-  padding-top:20px;
-}
-
-.content .primary .post a, .small {
-  font-size:.8em;
-  color:#aaa;
-}
-
-.content .primary .post h1 a {
-  color:#333;
 }
 
 .primary p {
@@ -131,8 +114,8 @@ div.field, div.actions {
 
 .sign_in_form {
   margin:50px auto;
-  width:350px;
-  text-align:center;
+  width:300px;
+  padding:20px;
   border:1px solid #999;
   -moz-border-radius: 15px;
   border-radius: 15px;
@@ -141,6 +124,70 @@ div.field, div.actions {
   box-shadow: 10px 10px 5px #888;  
 }
 
+.project_layout {
+  margin:50px auto;
+  width:818px;
+  padding-left:5px;
+  border:1px solid #999;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  -moz-box-shadow: 10px 10px 5px #888;
+  -webkit-box-shadow: 10px 10px 5px #888;
+  box-shadow: 10px 10px 5px #888;
+  background-color:#f3f3f3;  
+}
+
+.project_info {
+  margin:5px;
+  width:300px;
+}
+
+.small {
+  color:#aaa;
+  font-size:.8em;
+}
+
+.list {
+  border-bottom:1px solid #ddd;
+}
+/******Navigation Bar*****/
+#navbar {
+  background-color:#e3e3e3;
+}
+
+#navbar ul.nav {
+  margin:auto;
+  padding:0;
+  width:850px;
+  list-style:none;
+  overflow:hidden;
+  background-color:#e3e3e3;
+}
+
+#navbar ul.nav li {
+  float:left;
+}
+
+#navbar ul.nav li.user_status {
+  float:right;
+}
+
+#navbar ul.nav a  {
+  display:block;
+  padding:0 1em;
+  line-height: 2.1em;
+  text-decoration:none;
+  color:#333;
+}
+
+#navbar ul.nav a.user_status  {
+  padding:0 .3em;
+}
+
+#navbar ul.nav a:hover  {
+  background-color:#f3f3f3;
+  color:#333;
+}
 
 
 /****** Error Styles *******/

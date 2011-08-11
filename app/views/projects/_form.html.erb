@@ -1,6 +1,6 @@
+<div class="sign_in_form">
 <%= form_for @project do |f| %>
   <%= f.error_messages %>
-  <p><%= current_user.projects %> </p>
   <p>
     <%= f.label :name %><br />
     <%= f.text_field :name %>
@@ -25,9 +25,8 @@
     <%= f.label :start_date %><br />
     <%= f.date_select :start_date %>
   </p>
-  <p>
-    <%= f.label :user_id %><br />
-    <%= f.text_field :user_id, :value => current_user.id %>
-  </p>
+
   <p><%= f.submit %></p>
 <% end %>
+<p class="small"><%= link_to "dashboard",  dashboard_path(current_user)  %></p>
+</div>

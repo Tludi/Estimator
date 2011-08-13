@@ -15,6 +15,7 @@
     <% project.takeoffs.each do |t| %>
       <p class= "small takeoff">  
         <%= t.trade %>
+        <%= link_to "- edit -",  takeoff_path(t), :class => "small"%>
       </p>
     <% end -%>  
   <% end -%>

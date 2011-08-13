@@ -8,7 +8,7 @@
     <strong>Current email: </strong>
     <%= current_user.email %>
   </p>
-  <p class="small">
-    <%= link_to "Update Information", edit_user_path(current_user) %>
+  <p>
+    <%= link_to "Update Information", edit_user_path(current_user), :class => "small" %>
   </p>
 </div>

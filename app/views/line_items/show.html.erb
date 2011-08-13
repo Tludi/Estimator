@@ -1,0 +1,36 @@
+<% title "Line Item" %>
+
+<p>
+  <strong>Wall Length:</strong>
+  <%= @line_item.wall_length %>
+</p>
+<p>
+  <strong>Wall Height:</strong>
+  <%= @line_item.wall_height %>
+</p>
+<p>
+  <strong>Wall Sides:</strong>
+  <%= @line_item.wall_sides %>
+</p>
+<p>
+  <strong>Floor:</strong>
+  <%= @line_item.floor %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @line_item.description %>
+</p>
+<p>
+  <strong>Wall Layers:</strong>
+  <%= @line_item.wall_layers %>
+</p>
+<p>
+  <strong>Material:</strong>
+  <%= @line_item.material %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_line_item_path(@line_item) %> |
+  <%= link_to "Destroy", @line_item, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", line_items_path %>
+</p>

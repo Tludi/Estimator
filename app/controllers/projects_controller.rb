@@ -4,7 +4,9 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    session[:project_id] = nil if session[:project_id]
     @project = Project.find(params[:id])
+    session[:project_id] = @project.id
   end
 
   def new

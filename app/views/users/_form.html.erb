@@ -1,6 +1,7 @@
 <div class="sign_in_form">
   <%= form_for @user do |f| %>
     <%= f.error_messages %>
+    <h3>Your Information</h3>
     <p>
       <%= f.label :username %><br />
       <%= f.text_field :username %>
@@ -19,5 +20,9 @@
     </p>
     <p><%= f.submit (@user.new_record? ? "Sign up" : "Update") %></p>
   <% end %>
-  <p class="small">Already have an account? <%= link_to "Log in", login_path %>.</p>
+  <% if logged_in? %>
+    <%= link_to "Cancel", dashboard_path(current_user), :class => "small" %>
+    <% else %>
+    <p class="small">Already have an account with us? <%= link_to " Log in", login_path %>.</p>
+  <% end -%>
 </div>

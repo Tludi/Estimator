@@ -4,7 +4,12 @@ class TakeoffsController < ApplicationController
   end
 
   def show
+    session[:takeoff_id] = nil if session[:takeoff_id]
     @takeoff = Takeoff.find(params[:id])
+    session[:takeoff_id] = @takeoff.id
+    @line_item = LineItem.new
+    @line_items = current_takeoff.line_items
+    @total_area = LineItem.total_area
   end
 
   def new
@@ -12,8 +17,7 @@ class TakeoffsController < ApplicationController
   end
 
   def create
-    @project = current_user.projects[0]
-    @takeoff = @project.takeoffs.build(params[:takeoff])
+    @takeoff = current_project.takeoffs.build(params[:takeoff])
     if @takeoff.save
       redirect_to @project, :notice => "Successfully created takeoff."
     else

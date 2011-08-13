@@ -1,0 +1,32 @@
+<%= form_for @line_item do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :length %><br />
+    <%= f.text_field :wall_length %>
+  </p>
+  <p>
+    <%= f.label :height %><br />
+    <%= f.text_field :wall_height %>
+  </p>
+  <p>
+    <%= f.label :sides %><br />
+    <%= f.text_field :wall_sides %>
+  </p>
+  <p>
+    <%= f.label :floor %><br />
+    <%= f.text_field :floor %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.label :layers %><br />
+    <%= f.text_field :wall_layers %>
+  </p>
+  <p>
+    <%= f.label :material %><br />
+    <%= f.text_field :material %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

@@ -1,0 +1,29 @@
+<% title "Line Items" %>
+
+<table>
+  <tr>
+    <th>Wall Length</th>
+    <th>Wall Height</th>
+    <th>Wall Sides</th>
+    <th>Floor</th>
+    <th>Description</th>
+    <th>Wall Layers</th>
+    <th>Material</th>
+  </tr>
+  <% for line_item in @line_items %>
+    <tr>
+      <td><%= line_item.wall_length %></td>
+      <td><%= line_item.wall_height %></td>
+      <td><%= line_item.wall_sides %></td>
+      <td><%= line_item.floor %></td>
+      <td><%= line_item.description %></td>
+      <td><%= line_item.wall_layers %></td>
+      <td><%= line_item.material %></td>
+      <td><%= link_to "Show", line_item %></td>
+      <td><%= link_to "Edit", edit_line_item_path(line_item) %></td>
+      <td><%= link_to "Destroy", line_item, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Line Item", new_line_item_path %></p>

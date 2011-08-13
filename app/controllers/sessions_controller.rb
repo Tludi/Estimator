@@ -15,6 +15,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    session[:project_id] = nil if session[:project_id]
     session[:user_id] = nil
     redirect_to root_url
   end

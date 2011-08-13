@@ -10,11 +10,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110810205148) do
+ActiveRecord::Schema.define(:version => 20110812232143) do
 
   create_table "dashboards", :force => true do |t|
     t.string   "name"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "line_items", :force => true do |t|
+    t.integer  "takeoff_id"
+    t.integer  "wall_length"
+    t.integer  "wall_height"
+    t.integer  "wall_sides"
+    t.integer  "floor"
+    t.text     "description"
+    t.integer  "wall_layers"
+    t.string   "material"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

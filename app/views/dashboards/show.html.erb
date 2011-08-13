@@ -1,13 +1,21 @@
 <% title "Dashboard" %>
 
+
 <div class="projects">
-  <h2>My projects: </h2>
-    <%= link_to "new project", new_project_path, :class=>"small" %>
+  <h1 class="page_title">Dashboard</h1>
+  <h2>My projects:  </h2>
+    <%= link_to "- new project -", new_project_path, :class=>"small" %>
  
   <% @projects.each do |project|%>
     <p class="list"><strong>
-      <%= link_to project.name, project_path(project)  %></strong> |
-      <span class="small"><%= project.address %></span>
+      <%= link_to project.name, project_path(project)  %></strong> 
+      <span class="small"> - <%= project.address %></span>
     </p>
+    <p class="small">Project Takoffs:</p>
+    <% project.takeoffs.each do |t| %>
+      <p class= "small takeoff">  
+        <%= t.trade %>
+      </p>
+    <% end -%>  
   <% end -%>
 </div>

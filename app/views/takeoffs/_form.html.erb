@@ -1,5 +1,7 @@
+<div class="sign_in_form">
 <%= form_for @takeoff do |f| %>
   <%= f.error_messages %>
+  <h3>New / Update Takeoff</h3>
   <p>
     <%= f.label :trade %><br />
     <%= f.text_field :trade %>
@@ -8,9 +10,7 @@
     <%= f.label :division %><br />
     <%= f.text_field :division %>
   </p>
-  <p>
-    <%= f.label :project_id %><br />
-    <%= f.text_field :project_id %>
-  </p>
   <p><%= f.submit %></p>
 <% end %>
+  <%= link_to "Cancel", @takeoff, :class => "small" %>
+</div>

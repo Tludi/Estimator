@@ -55,12 +55,13 @@ div.field, div.actions {
 
 }
 
-#container div.projects {
+#container div.projects, #container div.takeoffs {
   width:500px;
-  height:700px;
   margin-top:20px;
+  min-height:600px;
   padding:5px 20px;
-  background-color:#e3e3e3;
+  /*background-color:#e3e3e3;*/
+  background-color:beige;
   float:left;
   display:inline;
   border:1px solid #999;
@@ -71,6 +72,19 @@ div.field, div.actions {
   box-shadow: 10px 10px 5px #888;
 }
 
+#container div.takeoffs {
+  width:795px;
+}
+
+.page_title {
+  color:beige;
+  margin:-5px -20px;
+  padding:10px 20px;
+  background-color:#EEE8AA;
+  border-bottom:#eee9aa;
+  height:25px;
+   text-shadow: #555 2px 2px 2px;
+}
 
 .content {
   overflow:hidden;
@@ -113,6 +127,7 @@ div.field, div.actions {
 }
 
 .sign_in_form {
+  background-color:beige;
   margin:50px auto;
   width:300px;
   padding:20px;
@@ -126,15 +141,13 @@ div.field, div.actions {
 
 .project_layout {
   margin:50px auto;
-  width:818px;
-  padding-left:5px;
+  width:803px;
+  padding-left:20px;
   border:1px solid #999;
-  -moz-border-radius: 15px;
-  border-radius: 15px;
   -moz-box-shadow: 10px 10px 5px #888;
   -webkit-box-shadow: 10px 10px 5px #888;
   box-shadow: 10px 10px 5px #888;
-  background-color:#f3f3f3;  
+  background-color:beige;  
 }
 
 .project_info {
@@ -147,9 +160,23 @@ div.field, div.actions {
   font-size:.8em;
 }
 
+.takeoff {
+  color:#999;
+  padding-left:20px;
+  font-size:1em;
+}
+
 .list {
   border-bottom:1px solid #ddd;
 }
+
+.takeoff_line_item {
+  border-bottom:1px solid #EEE8AA;
+  background-color:#EEE8AA;
+  text-align:center;
+}
+
+
 /******Navigation Bar*****/
 #navbar {
   background-color:#e3e3e3;

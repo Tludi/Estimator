@@ -3,7 +3,7 @@
 
   <div class="project_info">
     <p>
-      <h2><%= @project.name %></h2>
+      <h2><%= current_project.name %></h2>
       <strong>Address:</strong>
       <%= @project.address %>
       <br />
@@ -26,12 +26,13 @@
   </div>
   <hr>
     <div class="takeoff_list">
-      <h3>Current Takeoffs 
-      <span><%= link_to "New Takeoff", new_takeoff_path, :class => "small", :project => @project.id %></span>
-      </h3>
+      <h3>Current Takeoffs</h3>
+      <%= link_to "- New Takeoff -", new_takeoff_path, :class => "small" %>
+  
       <% @project.takeoffs.each do |t| %>
         <p>Division <%= t.division %> |
         <%= t.trade %>
+        <%= link_to "-Edit-", takeoff_path(t.id), :class => "small" %>
         </p>
       <% end -%>
     </div>

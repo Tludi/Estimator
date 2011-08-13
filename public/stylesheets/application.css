@@ -76,7 +76,7 @@ div.field, div.actions {
   width:795px;
 }
 
-.page_title {
+.box_header {
   color:beige;
   margin:-5px -20px;
   padding:10px 20px;
@@ -84,6 +84,15 @@ div.field, div.actions {
   border-bottom:#eee9aa;
   height:25px;
    text-shadow: #555 2px 2px 2px;
+}
+
+.box_header h1 {
+  margin:0;
+  width:50%;
+}
+
+.box_header a {
+  margin:-10px 0 0;
 }
 
 .content {
@@ -182,7 +191,8 @@ div.field, div.actions {
   background-color:#e3e3e3;
 }
 
-#navbar ul.nav {
+#navbar ul.nav, 
+  ul.nav {
   margin:auto;
   padding:0;
   width:850px;
@@ -195,11 +205,15 @@ div.field, div.actions {
   float:left;
 }
 
-#navbar ul.nav li.user_status {
+#navbar ul.nav li.user_status  {
+  float:right;
+} 
+
+.right_link {
   float:right;
 }
 
-#navbar ul.nav a  {
+#navbar ul.nav a, .user_status  {
   display:block;
   padding:0 1em;
   line-height: 2.1em;

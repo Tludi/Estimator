@@ -1,8 +1,8 @@
-<div class="project_layout">
-<% title "Project" %>
-
+<div class="projects">
+<% title current_project.name %>
+ <%= render "/shared/boxtitlebar" %>
   <div class="project_info">
-    <h1 class="page_title"><%= current_project.name %></h1>
+    
     <p>
       <strong>Address:</strong>
       <%= @project.address %>

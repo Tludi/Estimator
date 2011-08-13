@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   attr_accessible :username, :email, :password, :password_confirmation
 
   has_one :dashboard
-  has_many :projects
+  has_many :projects, :dependent => :destroy
 
   attr_accessor :password
   before_save :prepare_password

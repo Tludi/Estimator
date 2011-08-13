@@ -1,13 +1,18 @@
-<% title "Takeoff" %>
+<% title current_project.name + "- Takeoff" %>
 
 <div class="takeoffs">
-  <h1 class="page_title"><%= current_project.name %></h1>
+
+  <div class="box_header">
+    <h1><%= current_project.name  %></h1>
+    <%= link_to "Wall Types", takeoff_path, :class => "right_link" %>
+  </div>
   
   <p>
     Division <%= @takeoff.division %> - <%= @takeoff.trade %>
     <span class ="small"> |
       <%= link_to "Edit", edit_takeoff_path(@takeoff), :class=>"small" %> |
-      <%= link_to "Delete", @takeoff, :confirm => 'Are you sure?', :method => :delete, :class=>"small" %> 
+      <%= link_to "Delete", @takeoff, :confirm => 'Are you sure?', :method => :delete, :class=>"small" %>
+    
     </span>
   </p>
 

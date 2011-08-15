@@ -1,0 +1,7 @@
+one:
+  walltype_id: 1
+  material: MyString
+
+two:
+  walltype_id: 1
+  material: MyString

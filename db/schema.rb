@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110812232143) do
+ActiveRecord::Schema.define(:version => 20110813195807) do
 
   create_table "dashboards", :force => true do |t|
     t.string   "name"
@@ -57,6 +57,20 @@ ActiveRecord::Schema.define(:version => 20110812232143) do
     t.string   "email"
     t.string   "password_hash"
     t.string   "password_salt"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "wall_layers", :force => true do |t|
+    t.integer  "walltype_id"
+    t.string   "material"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "walltypes", :force => true do |t|
+    t.string   "name"
+    t.integer  "project_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

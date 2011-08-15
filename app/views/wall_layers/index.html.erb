@@ -1,0 +1,19 @@
+<% title "Wall Layers" %>
+
+<table>
+  <tr>
+    <th>Walltype</th>
+    <th>Material</th>
+  </tr>
+  <% for wall_layer in @wall_layers %>
+    <tr>
+      <td><%= wall_layer.walltype_id %></td>
+      <td><%= wall_layer.material %></td>
+      <td><%= link_to "Show", wall_layer %></td>
+      <td><%= link_to "Edit", edit_wall_layer_path(wall_layer) %></td>
+      <td><%= link_to "Destroy", wall_layer, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Wall Layer", new_wall_layer_path %></p>

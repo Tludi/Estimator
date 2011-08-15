@@ -1,0 +1,16 @@
+<% title "Wall Layer" %>
+
+<p>
+  <strong>Walltype:</strong>
+  <%= @wall_layer.walltype_id %>
+</p>
+<p>
+  <strong>Material:</strong>
+  <%= @wall_layer.material %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_wall_layer_path(@wall_layer) %> |
+  <%= link_to "Destroy", @wall_layer, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", wall_layers_path %>
+</p>

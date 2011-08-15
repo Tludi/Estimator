@@ -1,0 +1,35 @@
+<% title current_project.name + "- Takeoff" %>
+
+<div class="takeoffs">
+
+  <div class="box_header">
+    <h1><%= current_project.name  %></h1>
+    <%= link_to "Projects ", dashboard_path(current_user.dashboard), :class => "right_link" %> 
+    <%= link_to " Takeoff", takeoff_path(current_takeoff), :class => "right_link" %>
+  </div>
+  
+  <h3>Wall Types</h3>
+
+<table>
+  <tr>
+    <th></th>
+    <th>Name:</th>
+    <th>Layers:</th>
+  </tr>
+  <% if  @walltypes.empty? %>
+    <p>Add a wall tupe below. </p> 
+  <% end -%>
+  <%  @walltypes.each do |wall| %>
+    <tr class="takeoff_line_item">
+    <td><%= link_to "Delete", wall, :confirm => 'Are you sure?', :method => :delete, :class => "small"%> </td>
+      <td><%= wall.name %></td>
+      <% wall.wall_layers.each do |layer|%>
+          <td><%=  layer.material %> </td>
+      <% end -%>
+  
+    <% end %>
+  </tr>
+</table>
+<hr>
+<%= render "form" %>
+</div>

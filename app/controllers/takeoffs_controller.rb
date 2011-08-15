@@ -19,7 +19,7 @@ class TakeoffsController < ApplicationController
   def create
     @takeoff = current_project.takeoffs.build(params[:takeoff])
     if @takeoff.save
-      redirect_to @project, :notice => "Successfully created takeoff."
+      redirect_to current_project, :notice => "Successfully created takeoff."
     else
       render :action => 'new'
     end
@@ -41,6 +41,6 @@ class TakeoffsController < ApplicationController
   def destroy
     @takeoff = Takeoff.find(params[:id])
     @takeoff.destroy
-    redirect_to takeoffs_url, :notice => "Successfully destroyed takeoff."
+    redirect_to current_project, :notice => "Successfully destroyed takeoff."
   end
 end

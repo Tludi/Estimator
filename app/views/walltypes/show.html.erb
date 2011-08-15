@@ -1,0 +1,24 @@
+<% title current_project.name + "- Takeoff" %>
+
+<div class="takeoffs">
+
+  <div class="box_header">
+    <h1><%= current_project.name  %></h1>
+    <%= link_to "Projects", dashboard_path(current_project), :class => "right_link" %>
+  </div>
+  
+  <p>
+    Wall Types
+  </p>
+  <p>
+    <strong>Name:</strong>
+    <%= @walltype.name %>
+  </p>
+
+  <p>
+    <%= link_to "Edit", edit_walltype_path(@walltype) %> |
+    <%= link_to "Destroy", @walltype, :confirm => 'Are you sure?', :method => :delete %> |
+    <%= link_to "View All", walltypes_path %>
+  </p>
+
+</div>

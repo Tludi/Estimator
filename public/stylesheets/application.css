@@ -180,7 +180,6 @@ div.field, div.actions {
 }
 
 .takeoff_line_item {
-  border-bottom:1px solid #EEE8AA;
   background-color:#EEE8AA;
   text-align:center;
 }
@@ -211,6 +210,7 @@ div.field, div.actions {
 
 .right_link {
   float:right;
+  padding: 0 5px;
 }
 
 #navbar ul.nav a, .user_status  {

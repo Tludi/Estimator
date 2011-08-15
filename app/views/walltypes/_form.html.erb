@@ -1,0 +1,13 @@
+<%= form_for @walltype do |f| %>
+  <%= f.error_messages %>
+  <p>
+    
+    <%= f.label :name %>
+    <%= f.text_field :name, :size => 3 %>
+  </p>
+  <% f.fields_for :wall_layers do |builder| %>
+    <%= render "wall_layer_fields", :f => builder %>
+  <% end %>
+  <p  class ="small"><%= link_to_add_fields "Add Layer",  f,  :wall_layers %></p>
+  <p><%= f.submit "new" %></p>
+<% end %>

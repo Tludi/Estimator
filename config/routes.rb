@@ -1,4 +1,8 @@
 Estimator::Application.routes.draw do
+  resources :wall_layers
+
+  resources :walltypes
+
   resources :line_items
 
   resources :takeoffs

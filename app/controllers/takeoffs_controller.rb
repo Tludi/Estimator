@@ -9,7 +9,9 @@ class TakeoffsController < ApplicationController
     session[:takeoff_id] = @takeoff.id
     @line_item = LineItem.new
     @line_items = current_takeoff.line_items
-    @total_area = LineItem.total_area
+    # @wall_type = Walltype.find(line_item.walltype_id).name
+    @wall_types = current_project.walltypes
+    @materials = Material.all
   end
 
   def new
@@ -43,4 +45,5 @@ class TakeoffsController < ApplicationController
     @takeoff.destroy
     redirect_to current_project, :notice => "Successfully destroyed takeoff."
   end
+
 end

@@ -32,9 +32,35 @@
       <% @project.takeoffs.each do |t| %>
         <p>Division <%= t.division %> |
         <%= t.trade %>
-        <%= link_to "-Edit-", takeoff_path(t.id), :class => "small" %>
+        <%= link_to "-select-", takeoff_path(t.id), :class => "small" %>
         </p>
       <% end -%>
     </div>
-  
+  <hr>
+  <div class="checklist">
+    <h3>Project Checklist</h3>
+    <ul>
+      <li><%= check_box_tag "checklist"%>Pre-Bid Information Checklist</li>
+      <li><%= check_box_tag "checklist"%>Drawings and Specs</li>
+      <li><%= check_box_tag "checklist"%>Project Scope Checklist</li>
+      <li><%= check_box_tag "checklist"%>Detailed Document Review</li>
+      <li><%= check_box_tag "checklist"%>Preliminary Estimate</li>
+      <li><%= check_box_tag "checklist"%>Contact Suppliers</li>
+      <li><%= check_box_tag "checklist"%>Contact Subcontractors</li>
+      <li><%= check_box_tag "checklist"%>Site Visit</li>
+      <li><%= check_box_tag "checklist"%>Quantity Takeoffs</li>
+      <li><%= check_box_tag "checklist"%>Estimate Material costs</li>
+      <li><%= check_box_tag "checklist"%>Estimate Labor costs</li>
+      <li><%= check_box_tag "checklist"%>Estimate Equipment costs</li>
+      <li><%= check_box_tag "checklist"%>Estimate Jobsite Overhead</li>
+      <li><%= check_box_tag "checklist"%>Estimate Office Overhead</li>
+      <li><%= check_box_tag "checklist"%>Estimate Bonding Costs</li>
+      <li><%= check_box_tag "checklist"%>Estimate Insurance Costs</li>
+      <li><%= check_box_tag "checklist"%>Estimate Other Indirect Costs</li>
+      <li><%= check_box_tag "checklist"%>Estimate Profit</li>
+      <li><%= check_box_tag "checklist"%>Put Together Bid Package</li>
+
+    </ul>
+
+  </div>
 </div>

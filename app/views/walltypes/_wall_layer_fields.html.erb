@@ -1,6 +1,8 @@
 <p class="fields">
   <%= f.label :material, "layer " %>
-  <%= f.text_field :material, :size => 10 %>
+  <%= f.select(:material, Material.find(:all).collect {|m|
+    [m.name, m.name]}, {:prompt => "select (nothing yet)"}) %>
+
   <%= f.hidden_field :_destroy %>
   <span class = "small" ><%= link_to_remove_fields  "remove", f  %></span>
 </p>

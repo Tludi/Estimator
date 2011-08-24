@@ -1,0 +1,20 @@
+<% title "Material" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @material.name %>
+</p>
+<p>
+  <strong>Spec Division:</strong>
+  <%= @material.spec_division %>
+</p>
+<p>
+  <strong>Price:</strong>
+  <%= @material.price %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_material_path(@material) %> |
+  <%= link_to "Destroy", @material, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", materials_path %>
+</p>

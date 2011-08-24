@@ -1,4 +1,6 @@
 Estimator::Application.routes.draw do
+  resources :materials
+
   resources :wall_layers
 
   resources :walltypes

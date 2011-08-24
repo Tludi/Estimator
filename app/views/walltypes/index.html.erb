@@ -21,8 +21,9 @@
   <% end -%>
   <%  @walltypes.each do |wall| %>
     <tr class="takeoff_line_item">
-    <td><%= link_to "Delete", wall, :confirm => 'Are you sure?', :method => :delete, :class => "small"%> </td>
+      <td><%= link_to "Delete", wall, :confirm => 'Are you sure?', :method => :delete, :class => "small"%> </td>
       <td><%= wall.name %></td>
+      
       <% wall.wall_layers.each do |layer|%>
           <td><%=  layer.material %> </td>
       <% end -%>

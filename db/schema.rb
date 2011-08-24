@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110813195807) do
+ActiveRecord::Schema.define(:version => 20110820173822) do
 
   create_table "dashboards", :force => true do |t|
     t.string   "name"
@@ -28,6 +28,15 @@ ActiveRecord::Schema.define(:version => 20110813195807) do
     t.text     "description"
     t.integer  "wall_layers"
     t.string   "material"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "walltype_id"
+  end
+
+  create_table "materials", :force => true do |t|
+    t.string   "name"
+    t.integer  "spec_division"
+    t.integer  "price"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

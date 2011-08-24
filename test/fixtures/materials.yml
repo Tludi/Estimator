@@ -1,0 +1,9 @@
+one:
+  name: MyString
+  spec_division: 1
+  price: 1
+
+two:
+  name: MyString
+  spec_division: 1
+  price: 1

@@ -5,6 +5,7 @@ class LineItemsController < ApplicationController
 
   def show
     @line_item = LineItem.find(params[:id])
+    
   end
 
   def new
@@ -12,13 +13,22 @@ class LineItemsController < ApplicationController
   end
 
   def create
-    @line_item = current_takeoff.line_items.build(params[:line_item])
-    # @line_item = LineItem.new(params[:line_item])
+    @wall_layers = Walltype.find_by_id(params[:line_item][:walltype_id]).wall_layers
+    count = @wall_layers.length
+    digit = 0
+    count.times do
+      params[:line_item][:material] = @wall_layers[digit].material
+      @line_item = current_takeoff.line_items.create(params[:line_item])
+      digit += 1
+    end
+    
     if @line_item.save
       redirect_to current_takeoff, :notice => "Successfully created line item."
     else
       render :action => 'new'
     end
+
+   
   end
 
   def edit
@@ -28,7 +38,7 @@ class LineItemsController < ApplicationController
   def update
     @line_item = LineItem.find(params[:id])
     if @line_item.update_attributes(params[:line_item])
-      redirect_to @line_item, :notice  => "Successfully updated line item."
+      redirect_to current_takeoff
     else
       render :action => 'edit'
     end
@@ -37,6 +47,6 @@ class LineItemsController < ApplicationController
   def destroy
     @line_item = LineItem.find(params[:id])
     @line_item.destroy
-    redirect_to line_items_url, :notice => "Successfully destroyed line item."
+    redirect_to current_takeoff, :notice => "Deleted line item."
   end
 end

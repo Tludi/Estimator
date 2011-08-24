@@ -1,5 +1,5 @@
 body { 
-  background-color: #fff; 
+  background-color: #eee; 
   color: #333;
   margin:0;
   padding:0;
@@ -22,8 +22,8 @@ hr {
 a { color: #000; 
   text-decoration:none;
 }
-
-a:hover { color: blue; }
+a:hover { color: #ccc;  }
+span a:hover { color: #ccc;  text-shadow: #333 1px 1px 1px;}
 
 a:focus {outline:none;}
 
@@ -48,15 +48,16 @@ div.field, div.actions {
 }
 
 #container {
-  overflow:hidden;
-  width:850px;
+  /*overflow:hidden;*/
+  width:900px;
   margin:auto;
-  height:800px;
+  /*margin-bottom:10px;*/
+  height:100%;
 
 }
 
 #container div.projects, #container div.takeoffs {
-  width:500px;
+  width:600px;
   margin-top:20px;
   min-height:600px;
   padding:5px 20px;
@@ -64,16 +65,26 @@ div.field, div.actions {
   background-color:beige;
   float:left;
   display:inline;
-  border:1px solid #999;
+  border-left:.5px solid #d6d6d6;
+  border-top:.5px solid #d6d6d6;
 /*  -moz-border-radius: 15px;
   border-radius: 15px;*/
-  -moz-box-shadow: 10px 10px 5px #888;
-  -webkit-box-shadow: 10px 10px 5px #888;
-  box-shadow: 10px 10px 5px #888;
+  -moz-box-shadow: 5px 5px 5px #c6c6c6;;
+  -webkit-box-shadow: 5px 5px 5px #c6c6c6;
+  box-shadow: 5px 5px 8px #c6c6c6;
+}
+
+#container div.projects div.card h3{
+  color:#333;
+  text-shadow: #cdcdce 1px 1px 1px;
+}
+
+#container div.projects div.card h3 span{
+  text-shadow: #333 1px 1px 1px;
 }
 
 #container div.takeoffs {
-  width:795px;
+  width:855px;
 }
 
 .box_header {
@@ -88,7 +99,6 @@ div.field, div.actions {
 
 .box_header h1 {
   margin:0;
-  width:50%;
 }
 
 .box_header a {
@@ -140,12 +150,12 @@ div.field, div.actions {
   margin:50px auto;
   width:300px;
   padding:20px;
-  border:1px solid #999;
+  border:1px solid #ccc;
   -moz-border-radius: 15px;
   border-radius: 15px;
-  -moz-box-shadow: 10px 10px 5px #888;
-  -webkit-box-shadow: 10px 10px 5px #888;
-  box-shadow: 10px 10px 5px #888;  
+  -moz-box-shadow: 5px 5px 5px #c6c6c6;
+  -webkit-box-shadow: 5px 5px 5px #c6c6c6;
+  box-shadow: 5px 5px 8px #c6c6c6;  
 }
 
 .project_layout {
@@ -153,10 +163,26 @@ div.field, div.actions {
   width:803px;
   padding-left:20px;
   border:1px solid #999;
-  -moz-box-shadow: 10px 10px 5px #888;
-  -webkit-box-shadow: 10px 10px 5px #888;
-  box-shadow: 10px 10px 5px #888;
+  -moz-box-shadow: 5px 5px 5px #c6c6c6;
+  -webkit-box-shadow: 5px 5px 5px #c6c6c6;
+  box-shadow: 5px 5px 8px #c6c6c6; 
   background-color:beige;  
+}
+.card {
+  background:#fff;
+  border:.5px solid #aaa;
+  -moz-border-radius: 15px 15px 0 0;
+  border-radius: 15px 15px 0 0;
+  margin: 20px 0;
+  padding:10px;
+  -moz-box-shadow: 5px 5px 5px #c6c6c6;
+  -webkit-box-shadow: 5px 5px 5px #c6c6c6;
+  box-shadow: 5px 5px 8px #c6c6c6;
+     
+}
+
+.card p {
+  border-bottom:1px solid #e6e6e6;
 }
 
 .project_info {
@@ -169,6 +195,10 @@ div.field, div.actions {
   font-size:.8em;
 }
 
+.light {
+  color:#aaa;
+}
+
 .takeoff {
   color:#999;
   padding-left:20px;
@@ -176,12 +206,21 @@ div.field, div.actions {
 }
 
 .list {
-  border-bottom:1px solid #ddd;
+  -moz-border-radius: 15px 15px 0 0;
+  border-radius: 15px 15px 0 0;
+  margin:-10px;
+  background:#9a9a9a;
+  color:#eee;
+  padding:10px;
 }
 
 .takeoff_line_item {
   background-color:#EEE8AA;
   text-align:center;
+}
+
+.checklist ul{
+  list-style:none;
 }
 
 

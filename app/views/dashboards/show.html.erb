@@ -2,21 +2,17 @@
 
 
 <div class="projects">
-  <h1 class="box_header">Dashboard</h1>
+  <h1 class="box_header">Dashboard </h1>
   <h2>My projects:  </h2>
     <%= link_to "- new project -", new_project_path, :class=>"small" %>
- 
-  <% @projects.each do |project|%>
-    <p class="list"><strong>
-      <%= link_to project.name, project_path(project)  %></strong> 
-      <span class="small"> - <%= project.address %></span>
-    </p>
-    <p class="small">Project Takoffs:</p>
-    <% project.takeoffs.each do |t| %>
-      <p class= "small takeoff">  
-        <%= t.trade %>
-        <%= link_to "- edit -",  takeoff_path(t), :class => "small"%>
-      </p>
-    <% end -%>  
-  <% end -%>
+    <% @projects.each do |project|%>
+      <div class="card">
+        <h3 class="list"><%= project.name %><span><%= link_to " - select -",  project, :class => "small"%></span></h3>
+        <p class="address">Address: <span class="light"><%= project.address %></span></p>
+        <p class="address">General Contractor: <span class="light"><%= project.contractor %></span></p>
+        <p class="address">Bid Date: <span class="light"><%= project.bid_date %></span>  -  Start Date: <span class="light"><%= project.start_date %></span></p>
+        <p class="small">Project Takoffs: <%= project.takeoffs.length %></p>
+      </div>  
+    <% end -%>
+  
 </div>

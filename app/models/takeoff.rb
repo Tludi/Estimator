@@ -11,7 +11,8 @@ class Takeoff < ActiveRecord::Base
   def self.total_area(line_items)
     @count = 0
     line_items.each do |l|
-      if l.material == /Dry./
+      case l
+      when l.material == /Dry./
         individual_total = self.drywall_area(l.wall_length, l.wall_height)
         @count += individual_total
       end

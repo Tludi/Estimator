@@ -1,6 +1,8 @@
-<div class="projects">
 <% title current_project.name %>
- <%= render "/shared/boxtitlebar" %>
+<table class="layout">
+  <td class="left">
+    <h1 class="box_header"><%= current_project.name %></h1>
+<div class="projects">
   <div class="project_info">
     
     <p>
@@ -36,31 +38,38 @@
         </p>
       <% end -%>
     </div>
-  <hr>
-  <div class="checklist">
-    <h3>Project Checklist</h3>
-    <ul>
-      <li><%= check_box_tag "checklist"%>Pre-Bid Information Checklist</li>
-      <li><%= check_box_tag "checklist"%>Drawings and Specs</li>
-      <li><%= check_box_tag "checklist"%>Project Scope Checklist</li>
-      <li><%= check_box_tag "checklist"%>Detailed Document Review</li>
-      <li><%= check_box_tag "checklist"%>Preliminary Estimate</li>
-      <li><%= check_box_tag "checklist"%>Contact Suppliers</li>
-      <li><%= check_box_tag "checklist"%>Contact Subcontractors</li>
-      <li><%= check_box_tag "checklist"%>Site Visit</li>
-      <li><%= check_box_tag "checklist"%>Quantity Takeoffs</li>
-      <li><%= check_box_tag "checklist"%>Estimate Material costs</li>
-      <li><%= check_box_tag "checklist"%>Estimate Labor costs</li>
-      <li><%= check_box_tag "checklist"%>Estimate Equipment costs</li>
-      <li><%= check_box_tag "checklist"%>Estimate Jobsite Overhead</li>
-      <li><%= check_box_tag "checklist"%>Estimate Office Overhead</li>
-      <li><%= check_box_tag "checklist"%>Estimate Bonding Costs</li>
-      <li><%= check_box_tag "checklist"%>Estimate Insurance Costs</li>
-      <li><%= check_box_tag "checklist"%>Estimate Other Indirect Costs</li>
-      <li><%= check_box_tag "checklist"%>Estimate Profit</li>
-      <li><%= check_box_tag "checklist"%>Put Together Bid Package</li>
+    </td>
+  
+    <td class="right">
+    <div class="Right">
+      <div class="column">
+        <div class="content">
+          <h3>Project Checklist</h3>
+          <ul>
+            <li><%= check_box_tag "checklist"%>Pre-Bid Information Checklist</li>
+            <li><%= check_box_tag "checklist"%>Drawings and Specs</li>
+            <li><%= check_box_tag "checklist"%>Project Scope Checklist</li>
+            <li><%= check_box_tag "checklist"%>Detailed Document Review</li>
+            <li><%= check_box_tag "checklist"%>Preliminary Estimate</li>
+            <li><%= check_box_tag "checklist"%>Contact Suppliers</li>
+            <li><%= check_box_tag "checklist"%>Contact Subcontractors</li>
+            <li><%= check_box_tag "checklist"%>Site Visit</li>
+            <li><%= check_box_tag "checklist"%>Quantity Takeoffs</li>
+            <li><%= check_box_tag "checklist"%>Estimate Material costs</li>
+            <li><%= check_box_tag "checklist"%>Estimate Labor costs</li>
+            <li><%= check_box_tag "checklist"%>Estimate Equipment costs</li>
+            <li><%= check_box_tag "checklist"%>Estimate Jobsite Overhead</li>
+            <li><%= check_box_tag "checklist"%>Estimate Office Overhead</li>
+            <li><%= check_box_tag "checklist"%>Estimate Bonding Costs</li>
+            <li><%= check_box_tag "checklist"%>Estimate Insurance Costs</li>
+            <li><%= check_box_tag "checklist"%>Estimate Other Indirect Costs</li>
+            <li><%= check_box_tag "checklist"%>Estimate Profit</li>
+            <li><%= check_box_tag "checklist"%>Put Together Bid Package</li>
 
-    </ul>
-
-  </div>
-</div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </td>
+</table> <!-- end layout -->
+<span class="small left">diligent agility</span>

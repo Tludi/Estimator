@@ -8,16 +8,17 @@
     <%= yield(:head) %>
   </head>
   <body>
-
+        <% flash.each do |name, msg| %>
+          <%= content_tag :div, msg, :id => "flash" %>
+        <% end %>
     <%= render '/shared/header' %>
-    
-    <div id="container">    
-      <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, :id => "flash_#{name}" %>
-      <% end %>
+    <div id="Wrapper"  style="position:relative;">
+      <div class="container">
 
-      <%= yield %>
-       
+
+        <%= yield %>
+         
+      </div>
     </div> 
     
 

@@ -1,26 +1,32 @@
-  <div id="header">
-    <div id="navbar">
-      <ul class="nav">
- 
-        <li><%= link_to "Home", root_url %></li>
-        <% if logged_in? %>
-          <li><%= link_to "Dashboard", dashboard_path(current_user) %></li>
-        <% end -%>
+  <div id="header" class="global">
+  <h2>estimator</h2>
+
+    <div class="navigation">
       <% if logged_in? %>
-        <li class="user_status"><%= link_to ' Log Out ', logout_path, :class => "user_status" %></li>
-        <li class="user_status"><%= link_to ' My info ', my_info_path(current_user), :class => "user_status" %></li>
-
-        </p>
+      <div id="settings_logout">
+        <span class="name"><%= current_user.username.capitalize %></span>
+        <span class="pipe"> | </span>
+        <%= link_to ' My info ', my_info_path(current_user) %>
+        <span class="pipe"> | </span>
+        <%= link_to ' Log Out ', logout_path %>
+      </div>
       <% else %>
-        <li class="user_status"><%= link_to 'Log In', login_path, :class => "user_status" %></li>
-        </p> 
+        <div id="settings_logout">
+          <%= link_to 'Log In', login_path %>
+        </div>
       <% end -%>
+      </div> <!-- end navbar -->
+
+      <div id="Tabs">
+        <ul id="main_tabs">
+ 
+          <li><%= link_to "Home", root_url %></li>
+ 
+          <% if logged_in? %>
+            <li class="current"><%= link_to "Dashboard", dashboard_path(current_user)%></li>
+          <% end -%>
+ 
       </ul>
-    </div>
-    
+    </div> <!-- end Tabs -->
 
-    <div class="content">
-      <h2 class="logo_text">estimator</h2>
-    </div>
-
-  </div>
+</div> <!-- end header -->

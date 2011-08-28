@@ -1,18 +1,30 @@
 <% title "Dashboard" %>
 
+<table class="layout">
+  <td class="left">
+    <h1 class="box_header">My projects:  
+      <span class="small select"><%= link_to " - new project -", new_project_path%></span> </h1>
 
-<div class="projects">
-  <h1 class="box_header">Dashboard </h1>
-  <h2>My projects:  </h2>
-    <%= link_to "- new project -", new_project_path, :class=>"small" %>
-    <% @projects.each do |project|%>
-      <div class="card">
-        <h3 class="list"><%= project.name %><span><%= link_to " - select -",  project, :class => "small"%></span></h3>
-        <p class="address">Address: <span class="light"><%= project.address %></span></p>
-        <p class="address">General Contractor: <span class="light"><%= project.contractor %></span></p>
-        <p class="address">Bid Date: <span class="light"><%= project.bid_date %></span>  -  Start Date: <span class="light"><%= project.start_date %></span></p>
-        <p class="small">Project Takoffs: <%= project.takeoffs.length %></p>
-      </div>  
-    <% end -%>
-  
-</div>
+      <% @projects.each do |project|%>
+        <div class="card">
+          <h3 class="list"><%= project.name %><span><%= link_to " - select -",  project, :class => "small"%></span></h3>
+          <p class="address">Address: <span class="light"><%= project.address %></span></p>
+          <p class="address">General Contractor: <span class="light"><%= project.contractor %></span></p>
+          <p class="address">Bid Date: <span class="light"><%= project.bid_date %></span>  -  Start Date: <span class="light"><%= project.start_date %></span></p>
+          <p class="small">Project Takoffs: <%= project.takeoffs.length %></p>
+        </div>  
+      <% end -%>
+      
+  </td>
+  <td class="right">
+    <div class="Right">
+      <div class="column">
+        <div class="content">
+          <h3>sidebar</h3>
+        </div>
+      </div>
+    </div>
+  </td>
+</table> <!-- end layout -->
+      <span class="small left">diligent agility</span>
+

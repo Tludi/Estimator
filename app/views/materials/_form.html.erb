@@ -11,6 +11,9 @@
   <p>
     <%= f.label :price %><br />
     <%= f.text_field :price %>
-  </p>
+  </p
+    <%= f.label :geometry %>
+    <%= f.select(:geometry, Geometry.find(:all).collect {|g|
+    [g.name, g.name]}, {:prompt => "select (nothing yet)"}) %>
   <p><%= f.submit %></p>
 <% end %>

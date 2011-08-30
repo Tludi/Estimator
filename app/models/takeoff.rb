@@ -4,21 +4,48 @@ class Takeoff < ActiveRecord::Base
   belongs_to :project
   has_many :line_items
 
-  def self.drywall_area(length, height)
+ 
+
+  def self.calculate_geometry(material, geometry, line_items)
+    @count = 0
+    line_items.each do |l|
+        if l.material == material
+          if geometry == "rectangle"
+            individual_total = self.rectangle(l.wall_length, l.wall_height)
+            @count += individual_total
+            @suffix = "sqft"
+          elsif geometry == "linear"
+            individual_total = self.linear(l.wall_length, l.wall_height)
+            @count += individual_total
+            @suffix = "lft"
+          elsif geometry == "triangle"
+            individual_total = self.triangle(l.wall_length, l.wall_height)
+            @count += individual_total
+            @suffix = "sqft"
+          else geometry == "circumference"
+            individual_total = self.circumference(l.wall_length, l.wall_height)
+            @count += individual_total
+            @suffix = "lft"
+          end
+        end
+     end
+      @count.to_s + " " + @suffix
+  end
+
+ def self.rectangle(length, height)
     length*height*1*1
   end
 
-  def self.total_area(line_items)
-    @count = 0
-    line_items.each do |l|
-      case l
-      when l.material == /Dry./
-        individual_total = self.drywall_area(l.wall_length, l.wall_height)
-        @count += individual_total
-      end
-      
-    end
-    @count
+  def self.triangle(length, height)
+    length*height*0.5
+  end
+
+  def self.linear(length, height)
+    length*height
+  end
+
+  def self.circumference(length, height)
+    length + height
   end
 
   def self.calculate(material, length, height)

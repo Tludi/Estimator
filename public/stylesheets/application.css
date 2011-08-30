@@ -9,11 +9,13 @@ text-align:center;
 min-width:870px
 }
 
-body, p, ol, ul, td {
+body, p, ol, ul {
   font-family: ubuntu, verdana, arial, helvetica, sans-serif;
   line-height: 20px;
 }
-
+td {
+  line-height:15px;
+}
 ul li {list-style-type:  none}
 li {font-size:13px;line-height:13px;}
 
@@ -249,16 +251,24 @@ div.container {
   box-shadow: 5px 5px 8px #c6c6c6;
 }
 */
-table.layout {
+table.layout, div.layout {
   width:100%;
   border-collapse: collapse;
   clear:left;
 }
 
-table.layout td.left{
+table.layout td.left, div.layout table{
 width:70%}
 table.layout td.right{
 width:30%}
+
+table.line_item_list th,
+table.line_item_list td{
+  margin:0 2px;
+  padding:0 4px;
+  width:65px;
+}
+
 
 td.left{
   background:#e5e5e5;
@@ -268,7 +278,7 @@ td.left{
   width:70%;
   min-height:500px;
   float:left;
-  -moz-box-shadow: 5px 5px 5px #c6c6c6;;
+  -moz-box-shadow: 5px 5px 5px #c6c6c6;
   -webkit-box-shadow: 5px 5px 5px #c6c6c6;
   box-shadow: 5px 5px 8px #c6c6c6;
 }
@@ -282,7 +292,7 @@ td.left h2 {
   color:#ccc;
 }
 
-td.right{
+td.right, div.right{
   margin:0;
   padding:0;
   text-align:left;
@@ -290,7 +300,11 @@ td.right{
   width:30%;
 }
 
-table.layout td.left div.left,table.layout td.right div.Right{
+table.layout td.left div.left,
+table.layout td.right div.Right,
+div.layout table tr.left div.left,
+div.layout div.right div.Right
+{
 width:auto;
 float:none
 }
@@ -303,6 +317,11 @@ div.Right .column{
 .column {
   text-align:left;
 }
+
+.column h3{
+  text-align:center;
+}
+
 
 .column .content {
   background-color:#fff5b9;

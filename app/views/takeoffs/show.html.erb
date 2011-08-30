@@ -1,23 +1,46 @@
 <% title current_project.name + " - Takeoff" %>
 
-<div class="takeoffs">
 
-
-    <h1 class="box_header"><%= current_project.name  %></h1>
-    <%= link_to "Wall Types", walltypes_path, :class => "right_link" %>
-
-  
-  <p> 
-    Division <%= @takeoff.division %> - <%= @takeoff.trade %>
-    <span class ="small"> |
-      <%= link_to "Edit", edit_takeoff_path(@takeoff), :class=>"small" %> |
-      <%= link_to "Delete", @takeoff, :confirm => 'Are you sure?', :method => :delete, :class=>"small" %>
+   <h1 class="box_header"><%= current_project.name %></h1
     
-    </span>
-  </p>
-  <hr>
-  <table>
-    <tr>
+      <p>
+      <%= link_to "Wall Types", walltypes_path, :class => "right_link" %> 
+        Division <%= @takeoff.division %> - <%= @takeoff.trade %>
+        <span class ="small"> |
+          <%= link_to "Edit", edit_takeoff_path(@takeoff), :class=>"small" %> |
+          <%= link_to "Delete", @takeoff, :confirm => 'Are you sure?', :method => :delete, :class=>"small" %>
+        </span>
+      </p>
+      <hr>
+
+   <table>
+      <tr>
+        <th>WType</th>
+        <th>Item</th>
+        <th>Floor</th>
+        <th>Length</th>
+        <th>Height</th>
+        <th></th>
+      </tr>
+    <%= form_for @line_item do |f| %>
+      <%= f.error_messages %>
+      <tr>
+        <td><%= f.select(:walltype_id, current_project.walltypes.collect {|wt|
+      [wt.name, wt.id]}, {:prompt => "select"}) %>
+        <td><%= f.text_field :description, :size => "4" %> </td>
+        <td><%= f.text_field :floor, :size => "3" %>
+        <td><%= f.text_field :wall_length, :size => "5" %>
+        <td><%= f.text_field :wall_height, :size => "5" %>
+        <td><%= f.submit "Enter" %>
+      </tr>
+    <% end %> <!-- end form -->
+  </table>
+
+<!-- ******************************************************* -->
+  <br>
+<div class="layout">
+  <table class="line_item_list left"> 
+    <tr class="left">
       <th>WType</th>
       <th>Item</th>
       <th>Floor</th>
@@ -27,69 +50,41 @@
       <th>Area</th>
       <th></th>
     </tr>
-  <%= form_for @line_item do |f| %>
-    <%= f.error_messages %>
-    <tr>
-      <td><%= f.select(:walltype_id, current_project.walltypes.collect {|wt|
-    [wt.name, wt.id]}, {:prompt => "select"}) %>
-      <td><%= f.text_field :description, :size => "4" %> </td>
-      <td><%= f.text_field :floor, :size => "3" %>
-      <td><%= f.text_field :wall_length, :size => "5" %>
-      <td><%= f.text_field :wall_height, :size => "5" %>
-      <td>
-      <td><%= f.submit "Enter" %>
-    </tr>
-  <% end %> <!-- end form -->
-</table>
 
-<!-- ******************************************************* -->
-<br>
+    <% @materials.each do |m| %>
+      <% @line_items.each do |line_item| %>
+        <% if line_item.material ==  m.name %>
+          <tr class="takeoff_line_item left">
+            <td><%= Takeoff.locate_walltype(line_item.walltype_id) %> </td>
+            <td><%= line_item.description %> </td>
+            <td><%= line_item.floor %>
+            <td><%= line_item.wall_length%> lft
+            <td><%= line_item.wall_height %> lft
+            <td><%= line_item.material %>
+            <td><%= Takeoff.calculate(line_item.material, line_item.wall_length, line_item.wall_height) %></td>
+            <td><%= link_to "Edit", edit_line_item_path(line_item), :class => "small" %> 
+            <%= link_to "Delete", line_item, :method => :delete,  :class => "small" %> </td>
+          </tr>
+          <tr>&nbsp;</tr>
+        <% end -%>
+      <% end -%><!-- end line_item block -->
+    <% end -%> <!-- end material block -->
 
-<table> 
-  <tr>
-    <th>WType</th>
-    <th>Item</th>
-    <th>Floor</th>
-    <th>Length</th>
-    <th>Height</th>
-    <th>Material</th>
-    <th>Area</th>
-    <th></th>
-  </tr>
-</table>
+ </table>
 
-<% @materials.each do |m| %>
-  <table>
-    <% @line_items.each do |line_item| %>
-      <% if line_item.material ==  m.name %>
-        <tr class="takeoff_line_item">
-          <td><%= Takeoff.locate_walltype(line_item.walltype_id) %> </td>
-          <td><%= line_item.description %> </td>
-          <td><%= line_item.floor %>
-          <td><%= line_item.wall_length%> lft
-          <td><%= line_item.wall_height %> lft
-          <td><%= line_item.material %>
-          <td><%= Takeoff.calculate(line_item.material, line_item.wall_length, line_item.wall_height) %></td>
-          <td><%= link_to "Edit", edit_line_item_path(line_item), :class => "small" %> 
-          <%= link_to "Delete", line_item, :method => :delete,  :class => "small" %> </td>
-        </tr>
-        <tr>&nbsp;</tr>
+  <div class="right">
+    <div class="Right">
+      <div class="column">
+        <div class="content">
+          <h3>Material Totals</h3>
+      <% @materials.each do |m| %>
+          <ul>
+            <li><%= m.name %> total: <%= Takeoff.calculate_geometry(m.name, m.geometry, @line_items) %></li>
+          </ul>
       <% end -%>
-    <% end -%><!-- end line_item block -->
-  </table>
-<% end -%> <!-- end material block -->
-
-<br>
-
-<table>
-  <tr >
-    <td>
-    <td>
-    <td>
-    <td>
-    <td>
-    <td>
-    <td class="takeoff_line_item">area total 
-    <td><%= Takeoff.total_area(@line_items) %> sqft</td>  
-  </tr>
-</table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ 

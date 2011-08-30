@@ -1,6 +1,7 @@
 class MaterialsController < ApplicationController
   def index
     @materials = Material.all
+    @geometry = Geometry.all
   end
 
   def show
@@ -27,7 +28,7 @@ class MaterialsController < ApplicationController
   def update
     @material = Material.find(params[:id])
     if @material.update_attributes(params[:material])
-      redirect_to @material, :notice  => "Successfully updated material."
+      redirect_to materials_path, :notice  => "Successfully updated material."
     else
       render :action => 'edit'
     end

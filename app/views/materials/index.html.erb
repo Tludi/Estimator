@@ -5,17 +5,24 @@
     <th>Name</th>
     <th>Spec Division</th>
     <th>Price</th>
+    <th>Geometry</th>
   </tr>
   <% for material in @materials %>
     <tr>
       <td><%= material.name %></td>
       <td><%= material.spec_division %></td>
       <td><%= material.price %></td>
+      <td><%= material.geometry %> </td>
       <td><%= link_to "Show", material %></td>
       <td><%= link_to "Edit", edit_material_path(material) %></td>
       <td><%= link_to "Destroy", material, :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
   <% end %>
-</table>
+</table><br>
 
 <p><%= link_to "New Material", new_material_path %></p>
+
+<h3>Geometries</h3>
+<% @geometry.each do |g| %>
+  <%= g.name %><br>
+<% end -%>

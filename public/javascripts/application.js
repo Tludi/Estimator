@@ -10,5 +10,5 @@ function add_fields(link, association, content) {
 }
 
 $(function() {
-   $('#flash').delay(1500).fadeOut(2000); 
+   $('#flash').delay(500).fadeOut(2000); 
 });

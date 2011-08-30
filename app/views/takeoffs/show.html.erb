@@ -77,11 +77,13 @@
       <div class="column">
         <div class="content">
           <h3>Material Totals</h3>
-      <% @materials.each do |m| %>
-          <ul>
-            <li><%= m.name %> total: <%= Takeoff.calculate_geometry(m.name, m.geometry, @line_items) %></li>
-          </ul>
-      <% end -%>
+          <% unless  @line_items.empty? %>
+            <% @materials.each do |m| %>
+                <ul>
+                  <li><%= m.name %> total: <%= Takeoff.calculate_geometry(m.name, m.geometry, @line_items) %></li>
+                </ul>
+            <% end -%>
+          <% end -%>
         </div>
       </div>
     </div>

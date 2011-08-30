@@ -1,5 +1,9 @@
   <div id="header" class="global">
-  <%= link_to content_tag(:h2, "tract - estimator"), root_url %>
+    <% if logged_in? %>
+      <%= link_to content_tag(:h2, "Current Company"), root_url %>
+    <% else %>
+      <%= link_to content_tag(:h2, "Tract"), root_url %>
+    <% end -%>
 
     <div class="navigation">
       <% if logged_in? %>

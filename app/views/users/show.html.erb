@@ -8,6 +8,22 @@
     <strong>Current email: </strong>
     <%= current_user.email %>
   </p>
+   <p>
+    <strong>Company name: </strong>
+    <%= current_user.company_name %>
+  </p>
+    <p>
+    <strong>Address: </strong>
+    <%= current_user.address %>
+  </p>
+    <p>
+    <strong>Current phone#: </strong>
+    <%= current_user.phone %>
+  </p>
+    <p>
+    <strong>Current fax#: </strong>
+    <%= current_user.fax %>
+  </p>
   <p>
     <%= link_to "Update Information", edit_user_path(current_user), :class => "small" %>
   </p>

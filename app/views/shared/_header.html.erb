@@ -1,6 +1,6 @@
   <div id="header" class="global">
     <% if logged_in? %>
-      <%= link_to content_tag(:h2, "Current Company"), root_url %>
+      <%= link_to content_tag(:h2, current_user.company_name), root_url %>
     <% else %>
       <%= link_to content_tag(:h2, "Tract"), root_url %>
     <% end -%>

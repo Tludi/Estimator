@@ -18,6 +18,22 @@
       <%= f.label :password_confirmation, "Confirm Password" %><br />
       <%= f.password_field :password_confirmation %>
     </p>
+    <p>
+      <%= f.label :company_name %><br />
+      <%= f.text_field :company_name %>
+    </p>
+    <p>
+      <%= f.label :company_address %><br />
+      <%= f.text_field :address %>
+    </p>
+    <p>
+      <%= f.label :company_phone %><br />
+      <%= f.text_field :phone %>
+    </p>
+    <p>
+      <%= f.label :company_fax %><br />
+      <%= f.text_field :fax %>
+    </p>
     <p><%= f.submit (@user.new_record? ? "Sign up" : "Update") %></p>
   <% end %>
   <% if logged_in? %>

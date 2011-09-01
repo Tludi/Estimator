@@ -2,6 +2,7 @@ class MaterialsController < ApplicationController
   def index
     @materials = Material.all
     @geometry = Geometry.all
+  
   end
 
   def show
@@ -9,6 +10,7 @@ class MaterialsController < ApplicationController
   end
 
   def new
+    @select_options = [['select',''],['12', '1'], ['16', '2'], ['24', '3']]
     @material = Material.new
   end
 
@@ -22,6 +24,7 @@ class MaterialsController < ApplicationController
   end
 
   def edit
+      @select_options = [['select',''],['12', '12'], ['16', '16'], ['24', '24']]
     @material = Material.find(params[:id])
   end
 

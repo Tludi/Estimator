@@ -5,8 +5,9 @@
     
       <p>
       <%= link_to "Wall Types", walltypes_path, :class => "right_link" %> 
+        <%= link_to "Material", materials_path, :class => "right_link" %> 
         Division <%= @takeoff.division %> - <%= @takeoff.trade %>
-        <span class ="small"> |
+
           <%= link_to "Edit", edit_takeoff_path(@takeoff), :class=>"small" %> |
           <%= link_to "Delete", @takeoff, :confirm => 'Are you sure?', :method => :delete, :class=>"small" %>
         </span>
@@ -15,9 +16,9 @@
 
    <table>
       <tr>
-        <th>WType</th>
+        <th>WallType</th>
         <th>Item</th>
-        <th>Floor</th>
+        <th>Level</th>
         <th>Length</th>
         <th>Height</th>
         <th></th>
@@ -41,13 +42,13 @@
 <div class="layout">
   <table class="line_item_list left"> 
     <tr class="left">
-      <th>WType</th>
+      <th>WallType</th>
       <th>Item</th>
-      <th>Floor</th>
+      <th>Level</th>
       <th>Length</th>
       <th>Height</th>
       <th>Material</th>
-      <th>Area</th>
+      <th>Total</th>
       <th></th>
     </tr>
 
@@ -62,6 +63,7 @@
             <td><%= line_item.wall_height %> lft
             <td><%= line_item.material %>
             <td><%= Takeoff.calculate(line_item.material, line_item.wall_length, line_item.wall_height) %></td>
+  
             <td><%= link_to "Edit", edit_line_item_path(line_item), :class => "small" %> 
             <%= link_to "Delete", line_item, :method => :delete,  :class => "small" %> </td>
           </tr>
@@ -79,10 +81,17 @@
           <h3>Material Totals</h3>
           <% unless  @line_items.empty? %>
             <% @materials.each do |m| %>
+
                 <ul>
-                  <li><%= m.name %> total: <%= Takeoff.calculate_geometry(m.name, m.geometry, @line_items) %></li>
+                  <% if m.on_center %>
+                    <li><%= m.name %> total: <%= Takeoff.calculate_geometry(m.name, m.geometry, @line_items, m.on_center) %></li>
+                    <li>&nbsp;Studs:<%=  Takeoff.calculate_geometry(m.name, m.geometry, @line_items, m.on_center, "studs") %></li>
+                  <% else %>
+                    <li><%= m.name %> total: <%= Takeoff.calculate_geometry(m.name, m.geometry, @line_items) %></li>
+                  <% end -%>
                 </ul>
-            <% end -%>
+
+          <% end -%>
           <% end -%>
         </div>
       </div>

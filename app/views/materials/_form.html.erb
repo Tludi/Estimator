@@ -5,15 +5,22 @@
     <%= f.text_field :name %>
   </p>
   <p>
-    <%= f.label :spec_division %><br />
+    <%= f.label :division %><br />
     <%= f.text_field :spec_division %>
   </p>
   <p>
-    <%= f.label :price %><br />
+    <%= f.label :cost %><br />
     <%= f.text_field :price %>
   </p
     <%= f.label :geometry %>
     <%= f.select(:geometry, Geometry.find(:all).collect {|g|
     [g.name, g.name]}, {:prompt => "select (nothing yet)"}) %>
+  </p>
+  <p>
+      *<%= f.label :on_center %>
+      <%= f.select :on_center, options_for_select(@select_options) %>
+  </p>
+  *if needed
+
   <p><%= f.submit %></p>
 <% end %>

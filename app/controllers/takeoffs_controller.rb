@@ -9,9 +9,9 @@ class TakeoffsController < ApplicationController
     session[:takeoff_id] = @takeoff.id
     @line_item = LineItem.new
     @line_items = current_takeoff.line_items
-    # @wall_type = Walltype.find(line_item.walltype_id).name
     @wall_types = current_project.walltypes
     @materials = Material.all
+
   end
 
   def new
@@ -44,6 +44,13 @@ class TakeoffsController < ApplicationController
     @takeoff = Takeoff.find(params[:id])
     @takeoff.destroy
     redirect_to current_project, :notice => "Successfully destroyed takeoff."
+  end
+
+  def total_material_list(line_items)
+    materials = Material.all
+    materials.each do |m|
+      @material_total = Takeoff.calculate_geometry(m.name, m.geometry, line_items)
+    end
   end
 
 end

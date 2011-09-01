@@ -1,4 +1,6 @@
 class MaterialsController < ApplicationController
+  before_filter :admin_required
+
   def index
     @materials = Material.all
     @geometry = Geometry.all

@@ -5,7 +5,9 @@
     
       <p>
       <%= link_to "Wall Types", walltypes_path, :class => "right_link" %> 
-        <%= link_to "Material", materials_path, :class => "right_link" %> 
+        <% if admin? %>
+          <%= link_to "Material", materials_path, :class => "right_link" %> 
+          <% end -%>
         Division <%= @takeoff.division %> - <%= @takeoff.trade %>
 
           <%= link_to "Edit", edit_takeoff_path(@takeoff), :class=>"small" %> |

@@ -17,7 +17,7 @@
 #   before_filter :login_required, :except => [:index, :show]
 module ControllerAuthentication
   def self.included(controller)
-    controller.send :helper_method, :current_user, :current_project, :current_takeoff, :logged_in?, :redirect_to_target_or_default
+    controller.send :helper_method, :current_user, :current_project, :current_takeoff, :logged_in?, :admin?, :redirect_to_target_or_default
   end
 
   def current_user
@@ -34,6 +34,16 @@ module ControllerAuthentication
 
   def logged_in?
     current_user
+  end
+
+  def admin?
+    current_user.role == "admin"
+  end
+
+  def admin_required
+    unless admin?
+      redirect_to current_user.dashboard, :notice => "You do not have rights to that page"
+    end
   end
 
   def login_required

@@ -5,7 +5,10 @@ class SessionsController < ApplicationController
 
   def create
     user = User.authenticate(params[:login], params[:password])
-    if user
+    if user.role == "admin"
+      session[:user_id] = user.id
+      redirect_to_target_or_default admin_path
+    elsif user
       session[:user_id] = user.id
       redirect_to_target_or_default dashboard_path(user)
     else

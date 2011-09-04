@@ -1,6 +1,10 @@
   <div id="header" class="global">
     <% if logged_in? %>
-      <%= link_to content_tag(:h2, current_user.company_name), root_url %>
+      <% if admin? %>
+         <%= link_to content_tag(:h2, "Tract - Admin Panel"), admin_path %>
+       <% else %>
+        <%= link_to content_tag(:h2, current_user.company_name), root_url %>
+      <% end -%>
     <% else %>
       <%= link_to content_tag(:h2, "Tract"), root_url %>
     <% end -%>
@@ -28,10 +32,13 @@
             <% if admin? %>
               <li class="current"><%= link_to "admin", dashboard_path(current_user)%></li>
             <% end -%>
+
             <li class="current"><%= link_to "Dashboard", dashboard_path(current_user)%></li>
+
             <% if current_project %>
               <li class="current"><%= link_to current_project.name, current_project%></li>
             <% end -%>
+
           <% else %>
              <li><%= link_to "Home", root_url %></li>
           <% end -%>

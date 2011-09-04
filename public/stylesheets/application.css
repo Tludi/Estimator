@@ -8,7 +8,7 @@ background-color:#eee;
 text-align:center;
 min-width:870px
 }
-
+ 
 body, p, ol, ul {
   font-family: ubuntu, verdana, arial, helvetica, sans-serif;
   line-height: 20px;
@@ -75,14 +75,6 @@ div.field, div.actions {
 
 /**** header ******/
 /******************/
-/*#header{
-  background:none repeat scroll 0 0 #003366;
-  position:relative;
-  text-align:left;
-  height:105px;
-  background-color:#f3f3f3;
-  border-bottom:solid 1px  #d2d2d2;
-}*/
 
 #Wrapper {
   margin: 0 5%;  
@@ -318,13 +310,56 @@ width:30%}
 table.line_item_list th,
 table.line_item_list td{
   margin:0 2px;
-  padding:0 4px;
+  /*padding:0 4px;*/
   width:65px;
 }
 
 
+table.line_item_list th.material,
+table.line_item_list td.material{
+  width:460px;
+}
+
+#material-box{
+  background
+}
+/********** takeoff table styling ***********/
+
+#box-table-a
+{
+  font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+  font-size: 12px;
+  /*text-align: left;*/
+  border-collapse: collapse;
+}
+#box-table-a th, #material-box
+{
+  font-size: 13px;
+  font-weight: normal;
+  /*padding: 4px;*/
+  background: #b9c9fe;
+  border-top: 4px solid #aabcfe;
+  border-bottom: 1px solid #fff;
+  color: #039;
+}
+#box-table-a td
+{
+  padding: 4px;
+  background: #e8edff; 
+  border-bottom: 1px solid #fff;
+  color: #669;
+  border-top: 1px solid transparent;
+}
+#box-table-a tr:hover td
+{
+  background: #d0dafd;
+  color: #339;
+}
+
+/********** regular table styling **********/
+
 td.left{
-  background:#e5e5e5;
+  /*background:#e5e5e5;*/
   margin:0 -1px;
   padding:0; 
   text-align:left;
@@ -545,10 +580,10 @@ td.left h1, div.container h1{
   padding:10px;
 }
 
-.takeoff_line_item {
+/*.takeoff_line_item {
   background-color:#EEE8AA;
   text-align:center;
-}
+}*/
 
 .checklist ul{
   list-style:none;

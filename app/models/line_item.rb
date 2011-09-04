@@ -6,4 +6,6 @@ class LineItem < ActiveRecord::Base
   validates :wall_length, :wall_height, :presence => true, :numericality => true
   validates_presence_of :walltype_id
 
+  default_scope :order => :description
+
 end

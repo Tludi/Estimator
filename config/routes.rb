@@ -1,4 +1,7 @@
 Estimator::Application.routes.draw do
+  
+  get  '/admin' => 'admins#index', :as => :admin 
+
   resources :materials
 
   resources :wall_layers

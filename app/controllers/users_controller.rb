@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
+    @user.role = "fix roles"
     if @user.save
       session[:user_id] = @user.id
       @user.create_dashboard(:name => @user.username)

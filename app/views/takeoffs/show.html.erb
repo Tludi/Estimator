@@ -42,44 +42,45 @@
 <!-- ******************************************************* -->
   <br>
 <div class="layout">
-  <table class="line_item_list left"> 
-    <tr class="left">
-      <th>WallType</th>
-      <th>Item</th>
-      <th>Level</th>
-      <th>Length</th>
-      <th>Height</th>
-      <th>Material</th>
-      <th>Total</th>
-      <th></th>
-    </tr>
-
-    <% @materials.each do |m| %>
-      <% @line_items.each do |line_item| %>
-        <% if line_item.material ==  m.name %>
-          <tr class="takeoff_line_item left">
-            <td><%= Takeoff.locate_walltype(line_item.walltype_id) %> </td>
-            <td><%= line_item.description %> </td>
-            <td><%= line_item.floor %>
-            <td><%= line_item.wall_length%> lft
-            <td><%= line_item.wall_height %> lft
-            <td><%= line_item.material %>
-            <td><%= Takeoff.calculate(line_item.material, line_item.wall_length, line_item.wall_height) %></td>
-  
-            <td><%= link_to "Edit", edit_line_item_path(line_item), :class => "small" %> 
-            <%= link_to "Delete", line_item, :method => :delete,  :class => "small" %> </td>
-          </tr>
-          <tr>&nbsp;</tr>
-        <% end -%>
-      <% end -%><!-- end line_item block -->
-    <% end -%> <!-- end material block -->
-
+  <table id="box-table-a" class="line_item_list left"> 
+    <thead>
+      <tr class="left">
+        <th scope="col">Wall Type</th>
+        <th scope="col">Item</th>
+        <th scope="col">Level</th>
+        <th scope="col">Length</th>
+        <th scope="col">Height</th>
+        <th scope="col" class="material">Material</th>
+        <th scope="col">Total</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @materials.each do |m| %>
+        <% @line_items.each do |line_item| %>
+          <% if line_item.material ==  m.name %>
+            <tr class="takeoff_line_item left">
+              <td><%= Takeoff.locate_walltype(line_item.walltype_id) %> </td>
+              <td><%= line_item.description %> </td>
+              <td><%= line_item.floor %>
+              <td><%= line_item.wall_length%> lft
+              <td><%= line_item.wall_height %> lft
+              <td class="material"><%= line_item.material %>
+              <td><%= Takeoff.calculate(line_item.material, line_item.wall_length, line_item.wall_height) %></td>
+    
+              <td><%= link_to "Edit", edit_line_item_path(line_item), :class => "small" %> 
+              <%= link_to "Delete", line_item, :method => :delete,  :class => "small" %> </td>
+            </tr>
+          <% end -%>
+        <% end -%><!-- end line_item block -->
+      <% end -%> <!-- end material block -->
+    </tbody>
  </table>
 
   <div class="right">
     <div class="Right">
       <div class="column">
-        <div class="content">
+        <div id="material-box"class="content" >
           <h3>Material Totals</h3>
           <% unless  @line_items.empty? %>
             <% @materials.each do |m| %>

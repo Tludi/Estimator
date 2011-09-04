@@ -37,6 +37,7 @@ class ProjectsController < ApplicationController
 
   def destroy
     @project = Project.find(params[:id])
+    session[:project_id] = nil if session[:project_id]
     @project.destroy
     redirect_to dashboard_path(current_user), :notice => "Successfully deleted project."
   end

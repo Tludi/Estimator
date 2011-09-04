@@ -1,6 +1,6 @@
 <%= form_for @walltype do |f| %>
   <%= f.error_messages %>
-  <h3>Create new Wall Type:</h3>
+  <h3>Wall Type:</h3>
   <p>
     <%= f.label :name %>
     <%= f.text_field :name, :size => 3 %>
@@ -12,5 +12,5 @@
   <% end %>
   
   <p  class ="small"><%= link_to_add_fields "Add Layer",  f,  :wall_layers %></p>
-  <p><%= f.submit "create" %></p>
+  <p><%= f.submit %></p>
 <% end %>

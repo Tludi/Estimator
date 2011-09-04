@@ -1,8 +1,9 @@
 class WalltypesController < ApplicationController
   def index
     @counter = 0
+
     @walltypes = current_project.walltypes 
-    # @walltypes = Walltype.all
+ 
     @walltype = current_project.walltypes.new
     3.times do 
       # @walltype.build_wall_layer
@@ -40,7 +41,7 @@ class WalltypesController < ApplicationController
   def update
     @walltype = Walltype.find(params[:id])
     if @walltype.update_attributes(params[:walltype])
-      redirect_to @walltype
+      redirect_to walltypes_url
     else
       render :action => 'edit'
     end

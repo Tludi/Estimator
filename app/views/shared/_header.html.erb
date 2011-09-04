@@ -30,7 +30,7 @@
 
           <% if logged_in? %>
             <% if admin? %>
-              <li class="current"><%= link_to "admin", dashboard_path(current_user)%></li>
+              <li class="current"><%= link_to "admin", admin_path%></li>
             <% end -%>
 
             <li class="current"><%= link_to "Dashboard", dashboard_path(current_user)%></li>

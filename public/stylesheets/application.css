@@ -8,7 +8,7 @@ background-color:#eee;
 text-align:center;
 min-width:870px
 }
- 
+  
 body, p, ol, ul {
   font-family: ubuntu, verdana, arial, helvetica, sans-serif;
   line-height: 20px;
@@ -320,8 +320,8 @@ table.line_item_list td.material{
   width:460px;
 }
 
-#material-box{
-  background
+#material-box ul{
+  padding-left:20px;
 }
 /********** takeoff table styling ***********/
 
@@ -378,7 +378,7 @@ td.left h2 {
 
 .select a{
   font-size:.7em;
-  color:#ccc;
+  color:#999;
 }
 
 td.right, div.right{
@@ -424,8 +424,13 @@ div.Right .column{
   padding:10px 20px;
   background-color:#EEE8AA;
   border-top:1px  solid #ccc;
-  height:25px;
-  
+  height:30px;
+  text-align:left;
+  border-bottom:1px  solid #ccc;
+  background: #b9c9fe;
+  border-top: 4px solid #aabcfe;
+  border-bottom: 1px solid #fff;
+  color: #039;
 }
 
 .card {
@@ -444,6 +449,10 @@ div.Right .column{
 
 .card p {
   border-bottom:1px solid #e6e6e6;
+}
+
+div.card div h3 {
+  text-align:left;
 }
 
 .project_info {
@@ -580,11 +589,24 @@ td.left h1, div.container h1{
   padding:10px;
 }
 
-/*.takeoff_line_item {
-  background-color:#EEE8AA;
-  text-align:center;
-}*/
+.takeoff_list {
+  /*background-color:#EEE8AA;*/
+  padding-left:10px;
+}
 
+div.takeoff_list h3 {
+  text-align:left;
+  background: #b9c9fe;
+  border-top: 4px solid #aabcfe;
+  border-bottom: 1px solid #fff;
+  color: #039;
+  padding:10px;
+}
+
+div.takeoff_list a {
+  font-size:14px;
+  color:#999;
+}
 .checklist ul{
   list-style:none;
 }

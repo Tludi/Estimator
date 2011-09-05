@@ -23,8 +23,8 @@ pre {background-color: #eee;}
 
 hr {border-color:#fff;}
 
-a { color: #000; text-decoration:none;}
-a:hover { color: #ccc;  }
+a { color: #333; text-decoration:none;}
+a:hover { color: #333;text-decoration:underline;  }
 
 span a:hover { color: #ccc;  text-shadow: #333 1px 1px 1px;}
 

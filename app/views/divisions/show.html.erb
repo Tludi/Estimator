@@ -1,0 +1,37 @@
+<% title "Division" %>
+
+<h3>
+  <strong>Division:</strong>
+  <%= @division.division_number %> - 
+
+  <%= @division.name %>
+</h3>
+
+<p>
+  <%= link_to "Edit", edit_division_path(@division) %> |
+  <%= link_to "View All", divisions_path %>
+</p>
+<hr>
+<% @subdivisions.each do |s| %>
+  <p>
+  <%= s.sub_number %> -
+  <%= s.name %>
+  </p>
+<% end -%>
+<h3>Add Subdivision</h3>
+<%= form_for @subdivision do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :subdivision_number %><br />
+    <%= f.text_field :sub_number %>
+  </p>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :division_id %><br />
+    <%= f.text_field :division_id, :value => @division.id %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

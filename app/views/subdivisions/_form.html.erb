@@ -1,0 +1,16 @@
+<%= form_for @subdivision do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :Number %><br />
+    <%= f.text_field :sub_number %>
+  </p>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :division_id %><br />
+    <%= f.text_field :division_id %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

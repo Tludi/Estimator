@@ -9,8 +9,8 @@
           <%= link_to "Material", materials_path, :class => "right_link" %> 
           <% end -%>
         <span class="left">Division <%= @takeoff.division %> - <%= @takeoff.trade %>
-
-          <%= link_to "- Edit", edit_takeoff_path(@takeoff), :class=>"small" %> 
+          <span class="pipe"> | </span>
+          <%= link_to "Edit", edit_takeoff_path(@takeoff), :class=>"small" %> 
           <span class="pipe"> | </span>
           <%= link_to "Delete", @takeoff, :confirm => 'Are you sure?', :method => :delete, :class=>"small" %>
           </span><br>

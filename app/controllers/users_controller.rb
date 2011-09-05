@@ -10,6 +10,7 @@ class UsersController < ApplicationController
     @user.role = "fix roles"
     if @user.save
       session[:user_id] = @user.id
+      @user.create_account(:account_type => "free")
       @user.create_dashboard(:name => @user.username)
       redirect_to dashboard_path(@user)
     else

@@ -2,8 +2,11 @@
 
 <table class="layout">
   <td class="left">
-    <h1 class="box_header">My projects:  
-      <span class="small select"><%= link_to " - new project -", new_project_path%></span> </h1>
+    <h1 class="box_header">My projects:
+      <% unless @limit_met == true %>
+        <span class="small select"><%= link_to " - Create Project -", new_project_path%></span>
+      <% end -%>
+     </h1>
 
       <% @projects.each do |project|%>
         <div class="card">
@@ -20,7 +23,14 @@
     <div class="Right">
       <div class="column">
         <div class="content">
-          <h3>sidebar</h3>
+          <h3>News</h3>
+          <% if @account == "free" %>
+          <p>You are using the "Free" account which allows only one project. Upgrade to allow more projects"</p>
+          <% elsif @account == "basic" %>
+          <p>You are using the "Basic" account which allows 15 projects. You have <%= current_user.projects.count %> active project(s). Upgrade to allow more projects"</p>
+          <% elsif @account == "max" %>
+          <p>You are subscribed to the "Max" account. You are using <%= current_user.projects.count %> active project(s) with an unlimited limit.</p>
+          <% end -%>
         </div>
       </div>
     </div>

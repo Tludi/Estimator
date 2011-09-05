@@ -14,6 +14,8 @@
       <div id="settings_logout">
         <span class="name"><%= current_user.username.capitalize %> (<%= current_user.role %>)</span>
         <span class="pipe"> | </span>
+        <span class="name">Account (<%= current_user.account.account_type.capitalize %>) </span>
+        <span class="pipe"> | </span>
         <%= link_to ' My info ', my_info_path(current_user) %>
         <span class="pipe"> | </span>
         <%= link_to ' Log Out ', logout_path %>

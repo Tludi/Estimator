@@ -4,4 +4,5 @@ class Project < ActiveRecord::Base
   belongs_to :user
   has_many :takeoffs, :dependent => :destroy 
   has_many :walltypes, :dependent => :destroy
+
 end

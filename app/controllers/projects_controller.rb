@@ -7,6 +7,7 @@ class ProjectsController < ApplicationController
     session[:project_id] = nil if session[:project_id]
     @project = Project.find(params[:id])
     session[:project_id] = @project.id
+
   end
 
   def new
@@ -18,7 +19,7 @@ class ProjectsController < ApplicationController
     if @project.save
       redirect_to @project, :notice => "Successfully created project."
     else
-      render :action => 'new'
+      redirect_to @project, :notice => "Something went wrong, Please try again."
     end
   end
 

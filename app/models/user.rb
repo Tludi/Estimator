@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   # new columns need to be added here to be writable through mass assignment
   attr_accessible :username, :email, :password, :password_confirmation, :company_name, :address, :phone, :fax
 
+  has_one :account, :dependent => :destroy
   has_one :dashboard, :dependent => :destroy
   has_many :projects, :dependent => :destroy
 
@@ -34,4 +35,6 @@ class User < ActiveRecord::Base
       self.password_hash = encrypt_password(password)
     end
   end
+
+
 end

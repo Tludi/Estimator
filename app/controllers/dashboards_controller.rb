@@ -6,6 +6,8 @@ class DashboardsController < ApplicationController
   def show
     @dashboard = Dashboard.find(params[:id])
     @projects = current_user.projects
+    @limit_met = @dashboard.check_project_limit(current_user)
+    @account = current_user.account.account_type
   end
 
   def new

@@ -8,7 +8,7 @@ background-color:#eee;
 text-align:center;
 min-width:870px
 }
- 
+  
 body, p, ol, ul {
   font-family: ubuntu, verdana, arial, helvetica, sans-serif;
   line-height: 20px;
@@ -23,10 +23,10 @@ pre {background-color: #eee;}
 
 hr {border-color:#fff;}
 
-a { color: #000; text-decoration:none;}
-a:hover { color: #ccc;  }
+a { color: #333; text-decoration:none;}
+a:hover { color: #333;text-decoration:underline;  }
 
-span a:hover { color: #ccc;  text-shadow: #333 1px 1px 1px;}
+/*span a:hover { color: #ccc;  text-shadow: #333 1px 1px 1px;}*/
 
 a:focus {outline:none;}
 
@@ -320,8 +320,8 @@ table.line_item_list td.material{
   width:460px;
 }
 
-#material-box{
-  background
+#material-box ul{
+  padding-left:20px;
 }
 /********** takeoff table styling ***********/
 
@@ -378,7 +378,7 @@ td.left h2 {
 
 .select a{
   font-size:.7em;
-  color:#ccc;
+  color:#999;
 }
 
 td.right, div.right{
@@ -423,9 +423,15 @@ div.Right .column{
   margin:  0;
   padding:10px 20px;
   background-color:#EEE8AA;
+  background-color:#000066;
   border-top:1px  solid #ccc;
-  height:25px;
-  
+  height:30px;
+  text-align:left;
+  border-bottom:1px  solid #ccc;
+  background: #b9c9fe;
+  border-top: 4px solid #aabcfe;
+  border-bottom: 1px solid #fff;
+  color: #039;
 }
 
 .card {
@@ -446,37 +452,14 @@ div.Right .column{
   border-bottom:1px solid #e6e6e6;
 }
 
+div.card div h3 {
+  text-align:left;
+}
+
 .project_info {
   margin:5px;
   width:300px;
 }
-/**** valid above this line *****/
-
-
-/*#container {
-  overflow:hidden;
-  width:900px;
-  margin:auto;
-  margin: 0 30px;
-  height:100%;
-
-}
-*/
-
-
-/*#container td.projects div.card h3{
-  color:#333;
-  text-shadow: #cdcdce 1px 1px 1px;
-}
-
-#container td.projects div.card h3 span{
-  text-shadow: #333 1px 1px 1px;
-}
-
-#container div.takeoffs {
-  width:855px;
-}
-*/
 
 td.left h1, div.container h1{
   margin:0;
@@ -527,7 +510,7 @@ td.left h1, div.container h1{
   color:#ddd;
 }
 
-.sign_in_form {
+.sign_in_form, .takeoff_form {
   background-color:beige;
   margin:50px auto;
   width:300px;
@@ -538,6 +521,10 @@ td.left h1, div.container h1{
   -moz-box-shadow: 5px 5px 5px #c6c6c6;
   -webkit-box-shadow: 5px 5px 5px #c6c6c6;
   box-shadow: 5px 5px 8px #c6c6c6;  
+}
+
+.takeoff_form {
+  width:380px;
 }
 
 .project_layout {
@@ -580,11 +567,24 @@ td.left h1, div.container h1{
   padding:10px;
 }
 
-/*.takeoff_line_item {
-  background-color:#EEE8AA;
-  text-align:center;
-}*/
+.takeoff_list {
+  /*background-color:#EEE8AA;*/
+  padding-left:10px;
+}
 
+div.takeoff_list h3 {
+  text-align:left;
+  background: #b9c9fe;
+  border-top: 4px solid #aabcfe;
+  border-bottom: 1px solid #fff;
+  color: #039;
+  padding:10px;
+}
+
+div.takeoff_list a {
+  font-size:14px;
+  color:#999;
+}
 .checklist ul{
   list-style:none;
 }

@@ -1,5 +1,9 @@
 Estimator::Application.routes.draw do
   
+  resources :subdivisions
+
+  resources :divisions
+
   get  '/admin' => 'admins#index', :as => :admin 
 
   resources :materials

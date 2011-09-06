@@ -1,0 +1,16 @@
+<% title "Subdivision" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @subdivision.name %>
+</p>
+<p>
+  <strong>Division:</strong>
+  <%= @subdivision.division_id %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_subdivision_path(@subdivision) %> |
+  <%= link_to "Destroy", @subdivision, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", subdivisions_path %>
+</p>

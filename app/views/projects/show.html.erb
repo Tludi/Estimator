@@ -26,11 +26,10 @@
       <%= link_to "Delete", @project, :confirm => 'Are you sure?', :method => :delete, :class=>"small" %>
     </div>
   </div>
-  <hr>
     <div class="takeoff_list">
-      <h3>Current Takeoffs</h3>
-      <%= link_to "- New Takeoff -", new_takeoff_path, :class => "small" %>
-  
+      <h3>Project Takeoffs
+        <span class="right_link"><%= link_to "- New Takeoff -", new_takeoff_path, :class => "small" %></span>
+      </h3>
       <% @project.takeoffs.each do |t| %>
         <p>Division <%= t.division %> |
         <%= t.trade %>

@@ -1,18 +1,20 @@
 <% title current_project.name + " - Takeoff" %>
 
 
-   <h1 class="box_header"><%= current_project.name %></h1
+   <h1 class="box_header"><%= current_project.name %></h1>
     
       <p>
       <%= link_to "Wall Types", walltypes_path, :class => "right_link" %> 
         <% if admin? %>
           <%= link_to "Material", materials_path, :class => "right_link" %> 
           <% end -%>
-        Division <%= @takeoff.division %> - <%= @takeoff.trade %>
-
-          <%= link_to "Edit", edit_takeoff_path(@takeoff), :class=>"small" %> |
+        <span class="left">Division <%= @takeoff.division %> - <%= @takeoff.trade %>
+          <span class="pipe"> | </span>
+          <%= link_to "Edit", edit_takeoff_path(@takeoff), :class=>"small" %> 
+          <span class="pipe"> | </span>
           <%= link_to "Delete", @takeoff, :confirm => 'Are you sure?', :method => :delete, :class=>"small" %>
-        </span>
+          </span><br>
+   
       </p>
       <hr>
 
@@ -64,7 +66,7 @@
               <td><%= line_item.description %> </td>
               <td><%= line_item.floor %>
               <td><%= line_item.wall_length%> lft
-              <td><%= line_item.wall_height %> lft
+              <td ><%= line_item.wall_height %> lft
               <td class="material"><%= line_item.material %>
               <td><%= Takeoff.calculate(line_item.material, line_item.wall_length, line_item.wall_height) %></td>
     

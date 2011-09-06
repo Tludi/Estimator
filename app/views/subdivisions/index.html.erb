@@ -1,0 +1,21 @@
+<% title "Subdivisions" %>
+
+<table>
+  <tr>
+    <th>Number</th>
+    <th>Name</th>
+    <th>Division</th>
+  </tr>
+  <% for subdivision in @subdivisions %>
+    <tr>
+      <td><%= subdivision.sub_number %></td>
+      <td><%= subdivision.name %></td>
+      <td><%= subdivision.division_id %></td>
+      <td><%= link_to "Show", subdivision %></td>
+      <td><%= link_to "Edit", edit_subdivision_path(subdivision) %></td>
+      <td><%= link_to "Destroy", subdivision, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Subdivision", new_subdivision_path %></p>

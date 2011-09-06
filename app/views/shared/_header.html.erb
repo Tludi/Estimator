@@ -40,9 +40,9 @@
             <% if current_project %>
               <li class="current"><%= link_to current_project.name, current_project%></li>
             <% end -%>
-
+            <li><%= link_to "Home", root_url %></li>
           <% else %>
-             <li><%= link_to "Home", root_url %></li>
+             
           <% end -%>
  
       </ul>

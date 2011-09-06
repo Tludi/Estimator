@@ -1,16 +1,19 @@
-<div class="sign_in_form">
+<div class="takeoff_form">
 <%= form_for @takeoff do |f| %>
   <%= f.error_messages %>
   <h3>New / Update Takeoff</h3>
-  <p>
-    <%= f.label :trade %><br />
-    <%= f.text_field :trade %>
-  </p>
-  <p>
+    <p>
     <%= f.label :division %><br />
-    <%= f.text_field :division %>
+    <%= f.select(:division, Division.all.collect {|div|
+      [div.division_number.to_s + " - " + div.name, div.division_number]}, {:prompt => "select"}) %>
   </p>
+  <p>
+    <%= f.label :subdivision %><br />
+    <%= f.select(:trade, Subdivision.all.collect {|sub|
+      [sub.sub_number + " - " + sub.name, sub.name]}, {:prompt => "select"}) %>
+  </p>
+
   <p><%= f.submit %></p>
 <% end %>
-  <%= link_to "Cancel", @takeoff, :class => "small" %>
+  <%= link_to "Cancel", current_project, :class => "small" %>
 </div>

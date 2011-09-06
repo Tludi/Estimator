@@ -10,7 +10,7 @@
   <p>
     <%= f.label :subdivision %><br />
     <%= f.select(:trade, Subdivision.all.collect {|sub|
-      [sub.name, sub.name]}, {:prompt => "select"}) %>
+      [sub.sub_number + " - " + sub.name, sub.name]}, {:prompt => "select"}) %>
   </p>
 
   <p><%= f.submit %></p>

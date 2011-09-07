@@ -27,8 +27,6 @@ class LineItemsController < ApplicationController
     else
       render :action => 'new'
     end
-
-   
   end
 
   def edit
@@ -37,16 +35,26 @@ class LineItemsController < ApplicationController
 
   def update
     @line_item = LineItem.find(params[:id])
-    if @line_item.update_attributes(params[:line_item])
-      redirect_to current_takeoff
-    else
-      render :action => 'edit'
+
+    respond_to do |format|
+      if @line_item.update_attributes(params[:line_item])
+        format.html {redirect_to current_takeoff, :notice => 'Success!'}
+        format.json {head :ok}
+      else
+        format.html {render :action => 'edit'}
+        format.json {render :json => @line_item.errors, :status => :uprocessable_entity }
+      end
     end
   end
 
   def destroy
     @line_item = LineItem.find(params[:id])
     @line_item.destroy
-    redirect_to current_takeoff, :notice => "Deleted line item."
+
+    respond_to do |format|
+        format.html {redirect_to current_takeoff, :notice => "Deleted line item."}
+        format.xml  { head :ok }
+        format.js {render :template => 'takeoffs/destroy.js.erb', :layout => false }
+    end
   end
 end

@@ -10,7 +10,7 @@ gem 'pg'
 
 gem 'nifty-generators'
 gem 'jquery-rails'
-
+gem 'best_in_place'
 
 group :development, :test do
    gem 'webrat'

@@ -61,45 +61,34 @@
       <% @materials.each do |m| %>
         <% @line_items.each do |line_item| %>
           <% if line_item.material ==  m.name %>
-            <tr class="takeoff_line_item left">
+            <tr id='<%= "lineitem" + line_item.id.to_s %>' class="lineitem takeoff_line_item left" >
               <td><%= Takeoff.locate_walltype(line_item.walltype_id) %> </td>
-              <td><%= line_item.description %> </td>
+              <td>
+                <%= best_in_place line_item, :description %> 
+              </td>
               <td><%= line_item.floor %>
-              <td><%= line_item.wall_length%> lft
-              <td ><%= line_item.wall_height %> lft
-              <td class="material"><%= line_item.material %>
+              <td><%= best_in_place line_item, :wall_length%> lft
+              <td ><%= best_in_place line_item, :wall_height %> lft
+              <td class="material"><%= best_in_place line_item, :material, 
+                :type => :select, 
+                :collection =>  Material.all.collect {|wt|
+                [wt.name, wt.name]} %>
+              </td>
               <td><%= Takeoff.calculate(line_item.material, line_item.wall_length, line_item.wall_height) %></td>
     
-              <td><%= link_to "Edit", edit_line_item_path(line_item), :class => "small" %> 
-              <%= link_to "Delete", line_item, :method => :delete,  :class => "small" %> </td>
+              <td class="hidden">
+              <%= link_to image_tag("/images/delete.png"), line_item, :confirm => "Are you sure?", :method => :delete,  :remote => true, :class => "small deleteimage" %> </td>
             </tr>
           <% end -%>
-        <% end -%><!-- end line_item block -->
-      <% end -%> <!-- end material block -->
+        <% end -%>
+      <% end -%>
     </tbody>
  </table>
 
   <div class="right">
     <div class="Right">
       <div class="column">
-        <div id="material-box"class="content" >
-          <h3>Material Totals</h3>
-          <% unless  @line_items.empty? %>
-            <% @materials.each do |m| %>
-
-                <ul>
-                  <% if m.on_center %>
-                    <li><%= m.name %> total: <%= Takeoff.calculate_geometry(m.name, m.geometry, @line_items, m.on_center) %></li>
-                    <li>&nbsp;Studs:<%=  Takeoff.calculate_geometry(m.name, m.geometry, @line_items, m.on_center, "studs") %></li>
-                  <% else %>
-                    <li><%= m.name %> total: <%= Takeoff.calculate_geometry(m.name, m.geometry, @line_items) %></li>
-                  <% end -%>
-                </ul>
-
-          <% end -%>
-          <% end -%>
-        </div>
-      </div>
+        <%= render 'material_totals'%>
     </div>
   </div>
 </div>

@@ -36,6 +36,8 @@ GEM
     activesupport (3.0.9)
     arel (2.0.10)
     bcrypt-ruby (2.1.4)
+    best_in_place (0.1.9)
+      rails (~> 3.0.0)
     builder (2.1.2)
     daemons (1.1.4)
     erubis (2.6.6)
@@ -96,6 +98,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt-ruby
+  best_in_place
   jquery-rails
   mocha
   nifty-generators

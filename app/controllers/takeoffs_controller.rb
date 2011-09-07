@@ -11,6 +11,13 @@ class TakeoffsController < ApplicationController
     @line_items = current_takeoff.line_items
     @wall_types = current_project.walltypes
     @materials = Material.all
+    @line_item1 = LineItem.first
+
+    respond_to do |format|
+        format.html 
+        format.xml  { head :ok }
+        format.js
+    end
 
   end
 

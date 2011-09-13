@@ -9,6 +9,7 @@ class MaterialsController < ApplicationController
 
   def show
     @material = Material.find(params[:id])
+    @materials = Material.all
   end
 
   def new

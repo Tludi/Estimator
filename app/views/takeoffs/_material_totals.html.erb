@@ -5,10 +5,10 @@
 
                 <ul>
                   <% if m.on_center %>
-                    <li><%= m.name %> total: <%= Takeoff.calculate_geometry(m.name, m.geometry, @line_items, m.on_center) %></li>
-                    <li>&nbsp;Studs:<%=  Takeoff.calculate_geometry(m.name, m.geometry, @line_items, m.on_center, "studs") %></li>
+                    <li><%= m.name %> total: <%= calculate_geometry(m.name, m.geometry, @line_items, m.on_center) %></li>
+                    <li>&nbsp;Studs:<%=  calculate_geometry(m.name, m.geometry, @line_items, m.on_center, "studs") %></li>
                   <% else %>
-                    <li><%= m.name %> total: <%= Takeoff.calculate_geometry(m.name, m.geometry, @line_items) %></li>
+                    <li><%= m.name %> total: <%= calculate_geometry(m.name, m.geometry, @line_items) %></li>
                   <% end -%>
                 </ul>
 

@@ -6,4 +6,8 @@ class Project < ActiveRecord::Base
   has_many :takeoffs, :dependent => :destroy 
   has_many :walltypes, :dependent => :destroy
 
+  def hello
+    "hello"
+  end
+
 end

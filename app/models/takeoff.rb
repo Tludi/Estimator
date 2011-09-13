@@ -37,7 +37,7 @@ class Takeoff < ActiveRecord::Base
           end
         end
      end
-      @count.to_s + " " +@suffix
+      return @count.to_s + " " +@suffix if @count > 0
   end
 
  def self.rectangle(length, height)
